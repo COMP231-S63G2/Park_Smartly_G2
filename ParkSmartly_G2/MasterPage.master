@@ -7,22 +7,30 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="topcontainer">
-        <div style="float: left; width: 100%; height: 135px; background-color: Gray">
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo.jpg" Width="100%" Height="135px" />
-        </div>
-    </div>
     <form id="form1" runat="server">
-        <div class="maincon">
-            <div class="leftcon">
-            </div>
+        <div class="container container-fluid">
+            <div style="background-color: #ebe7e7">
+                <div id="topContent" style="background-color: #7c5e90;  width: auto">
+                    <h1 style="margin:0px;padding:25px;font-family:Arial;color:white;">Park Smartly</h1>
+                </div>
 
-            <div class="contentplace" style="float: left;">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
+                <div class="container">
+                    <div id="leftCntnt" class="col-sm-3" style="background-color: #c3c0c0; margin-top: 10px;height:300px">
+                                         
+                       
+                    </div>
+                    <div id="mainCntnt" class="col-sm-9" style="margin-top:10px;">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <hr style="color: #7c5e90" />
+                <div id="footerCntnt">
+                    <p class="text-center">&copy;2014 - ParkSmartly-Comp231_Sec63_Group2</p>
+                </div>
             </div>
         </div>
     </form>
