@@ -13,16 +13,21 @@
     <form id="form1" runat="server">
         <div class="container container-fluid">
             <div style="background-color: #ebe7e7">
-                <div id="topContent" style="background-color: #7c5e90;  width: auto">
-                    <h1 style="margin:0px;padding:25px;font-family:Arial;color:white;">Park Smartly</h1>
+                <div id="topContent" style="background-color: #7c5e90; width: auto">
+                    <h1 style="margin: 0px; padding: 25px; font-family: Arial; color: white;">Park Smartly</h1>
                 </div>
 
                 <div class="container">
-                    <div id="leftCntnt" class="col-sm-3" style="background-color: #c3c0c0; margin-top: 10px;height:300px">
-                                         
-                       
+                    <div id="leftCntnt" class="col-sm-3" style=" margin-top: 10px; height: 300px">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Search Car Location</a></li>
+                            <li><a href="#">Extend Parking Time</a></li>
+                           
+                        </ul>
                     </div>
-                    <div id="mainCntnt" class="col-sm-9" style="margin-top:10px;">
+                    <div id="mainCntnt" class="col-sm-9" style="margin-top: 10px;">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
