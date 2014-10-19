@@ -24,7 +24,9 @@
                             <li><a href="#">Login</a></li>
                             <li><a href="#">Search Car Location</a></li>
                             <li><a href="#">Extend Parking Time</a></li>
-                           
+                            <li><a href="#">Book Online</a></li>
+                            <li><a href="#">Check Reports</a></li>
+                            <li><a href="#">About Us</a></li>
                         </ul>
                     </div>
                     <div id="mainCntnt" class="col-sm-9" style="margin-top: 10px;">
