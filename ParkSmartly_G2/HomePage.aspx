@@ -16,9 +16,9 @@
         </div>
         <div class="div2" style="float: left; width: 720px; margin-top: 10px; margin-left: 30px;">
             <div id="mcts1" style="width: 700px; height: 300px; float: left;">
-                <img src="Images/1.jpg" style="height: 250px; width: 690px" />
-                <img src="Images/2.jpg" style="height: 250px; width: 690px" />
-                <img src="Images/3.jpeg" style="height: 250px; width: 690px" />
+                <img src="Images/1.png" style="height: 250px; width: 650px" />
+                <img src="Images/2.png" style="height: 250px; width: 670px" />
+                <img src="Images/3.jpg" style="height: 250px; width: 660px" />
 
             </div>
         </div>
