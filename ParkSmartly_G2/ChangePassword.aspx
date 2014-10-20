@@ -8,9 +8,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+     <div style="height: 450px; width: 380px; opacity: 0.9; float: left; margin-left: 180px; margin-top: 20px;">
+     <div style="height: 40px; width: 312px; margin-left:50px";><h2>Change Password</h2></div>
     <table style="width:100%;">
         <tr>
-            <td class="auto-style1">Change Password</td>
+            <td></td>
             <td>&nbsp;</td>
             
         </tr>
@@ -38,5 +40,6 @@
                 </td>
         </tr>
     </table>
+   </div>
 </asp:Content>
 

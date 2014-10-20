@@ -20,8 +20,8 @@
                 <div class="container">
                     <div id="leftCntnt" class="col-sm-3" style=" margin-top: 10px; height: 300px">
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="HomePage.aspx">Login</a></li>
+                            <li class="active"><a href="HomePage.aspx">Home</a></li>
+                            <li><a href="AdminLogin.aspx">Login</a></li>
                             <li><a href="#">Search Car Location</a></li>
                             <li><a href="#">Extend Parking Time</a></li>
                             <li><a href="#">Book Online</a></li>
