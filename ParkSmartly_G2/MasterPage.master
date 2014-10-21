@@ -22,11 +22,11 @@
                         <ul class="nav nav-pills nav-stacked">
                             <li class="active"><a href="HomePage.aspx">Home</a></li>
                             <li><a href="AdminLogin.aspx">Login</a></li>
-                            <li><a href="#">Search Car Location</a></li>
-                            <li><a href="#">Extend Parking Time</a></li>
-                            <li><a href="#">Book Online</a></li>
-                            <li><a href="#">Check Reports</a></li>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="SearchLocation.aspx">Search Car Location</a></li>
+                            <li><a href="ExtendTime.aspx">Extend Parking Time</a></li>
+                            <li><a href="BookOnline.aspx">Book Online</a></li>
+                            <li><a href="Reports.aspx">Check Reports</a></li>
+                            <li><a href="Aboutus.aspx">About Us</a></li>
                         </ul>
                     </div>
                     <div id="mainCntnt" class="col-sm-9" style="margin-top: 10px;">
