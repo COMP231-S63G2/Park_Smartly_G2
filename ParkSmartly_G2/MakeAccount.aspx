@@ -12,12 +12,20 @@
                 <input id="Text2" type="text" /></td></tr>
             <tr><td>Last Name</td><td>
                 <input id="Text3" type="text" /></td></tr>
+            <tr><td>Gender</td><td>
+                <asp:DropDownList ID="DropDownList3" runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
+                    <asp:ListItem>Male</asp:ListItem>
+                    <asp:ListItem>Female</asp:ListItem>
+                    <asp:ListItem>Other</asp:ListItem>
+                </asp:DropDownList></tr>
             <tr><td>Address</td><td>
                 <input id="Text4" type="text" /></td></tr>
             <tr><td>City</td><td>
                 <input id="Text5" type="text" /></td></tr>
             <tr><td>Province</td><td>
                 <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Ontario</asp:ListItem>
                     <asp:ListItem>Alberta</asp:ListItem>
                     <asp:ListItem>Québec</asp:ListItem>
@@ -32,6 +40,7 @@
                 <input id="Text7" type="text" /></td></tr>
             <tr><td>Blood Group</td><td>
                 <asp:DropDownList ID="DropDownList2" runat="server">
+                    <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>A +ve</asp:ListItem>
                     <asp:ListItem>A -ve</asp:ListItem>
                     <asp:ListItem>B +ve</asp:ListItem>
