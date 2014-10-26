@@ -11,17 +11,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container container-fluid">
             <div style="background-color: #ebe7e7">
                 <div id="topContent" style="background-color: #7c5e90; width: auto">
                     <h1 style="margin: 0px; padding: 25px; font-family: Arial; color: white;">Park Smartly</h1>
+
+                    <asp:LinkButton ID="lnkbtnLogout" runat="server" OnClick="lnkbtnLogout_Click" Text="Logout"></asp:LinkButton>
                 </div>
 
                 <div class="container">
-                    <div id="leftCntnt" class="col-sm-3" style=" margin-top: 10px; height: 300px">
+                    <div id="leftCntnt" class="col-sm-3" style="margin-top: 10px; height: 300px">
                         <ul class="nav nav-pills nav-stacked">
                             <li class="active"><a href="HomePage.aspx">Home</a></li>
-                            <li><a href="AdminLogin.aspx">Login</a></li>
+                            <li><a href="WindowLogin.aspx">Login</a></li>
                             <li><a href="SearchLocation.aspx">Search Car Location</a></li>
                             <li><a href="ExtendTime.aspx">Extend Parking Time</a></li>
                             <li><a href="BookOnline.aspx">Book Online</a></li>
@@ -40,6 +43,7 @@
                 </div>
             </div>
         </div>
+
     </form>
 </body>
 </html>

@@ -17,15 +17,14 @@ public partial class AdminLogin : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
         con.Open();
-        string cmndstr_psd = "Select Password from registration where User_Name ='admin'";
+        string cmndstr_psd = "Select Password from Registration where UserName ='" + Tbox_un.Text + "'";
         SqlCommand getpasswrd = new SqlCommand(cmndstr_psd, con);
         string password = getpasswrd.ExecuteScalar().ToString();
         con.Close();
-
-
+        
         if (password == Tbox_pass.Text)
         {
-            Response.Redirect("MakeAccounts.aspx");
+            Response.Redirect("MakeAccount.aspx");
         }
         else { Lbl_invalid.Visible = true; }
     }
