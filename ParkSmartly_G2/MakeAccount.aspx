@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MakeAccount.aspx.cs" Inherits="MakeAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<style type="text/css">
+    <style type="text/css">
         .auto-style1 {
             height: 26px;
         }
@@ -54,15 +54,14 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <div class="t1" style="height: 600px; width: 550px; opacity: 0.9; float: left; margin-left: 100px; margin-top: 20px;margin-bottom:110px">
+     <div class="t1" style="height: 600px; width: 590px; opacity: 0.9; float: left; margin-left: 100px; margin-top: 20px;margin-bottom:110px">
      <div style="height: 40px; width: 312px; margin-left:170px";><h2>Registration</h2></div>
-    <table style="width:89%; margin-left:50px; height: 356px;">
+    <table style="width:91%; margin-left:50px; height: 356px;">
         <tr>
             <td>&nbsp;</td>
             <td colspan="2">
                 <asp:Label ID="lbl_us_exists" runat="server" Text="Username already exists..Try another." ForeColor="Red" Visible="false"></asp:Label>
                 <asp:Label ID="lbl_succs" runat="server" Text="Registration Successfully done." ForeColor="#009900" Visible="false"></asp:Label>
-                <asp:Label ID="lbl_nt_mtch" runat="server" Text="Confirm Password not matching" ForeColor="Red" Visible="false"></asp:Label>
         </td>
              </tr>     
         
@@ -89,8 +88,8 @@
                 </asp:DropDownList>
                 </td>
                 <td class="auto-style9">
-                     <asp:Label ID="lbl_gen_error" runat="server" Text="select Gender" ForeColor="Red" Visible="false"></asp:Label>   </td>
-            </tr>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="DropDown_gen" ForeColor="Red" InitialValue="Select" ErrorMessage="Please select Gender" />
+</td> </tr>
             <tr><td class="auto-style4">Address</td><td class="auto-style4">
                     <asp:TextBox ID="tb_adrs" runat="server"></asp:TextBox>
                 </td>
@@ -118,6 +117,8 @@
                     <asp:ListItem>Manitoba</asp:ListItem>
                 </asp:DropDownList>
                 </td>
+                <td><asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="DropDown_pro" InitialValue="Select" ForeColor="Red" ErrorMessage="Please select Province" />
+               </td>
             </tr>
              <tr><td>Postal Code</td><td class="auto-style1">
                     <asp:TextBox ID="Tb_pocd" runat="server"></asp:TextBox>
@@ -174,15 +175,17 @@
                     <asp:ListItem>O -ve</asp:ListItem>
                 </asp:DropDownList></td>
                  <td class="auto-style14">
-                     <asp:Label ID="lbl_bld_grp" runat="server" Text="select Gender" ForeColor="Red" Visible="false"></asp:Label>   </td>
-            
-
+                     <asp:RequiredFieldValidator ID="rfv1" runat="server" ControlToValidate="DropDown_blgr" InitialValue="Select" ForeColor="Red" ErrorMessage="Please select Blood Group" />
+</td>
             </tr> 
              
              <tr><td>
-                 <asp:Button ID="Button2" runat="server" Text="Reset" OnClick="Button2_Click" />
+                 <asp:Button ID="Button2" runat="server" Text="Reset" OnClick="Btn_reset_Click" />
                  </td><td class="auto-style1">
                      <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Btn_sbmt_Click" />
+                 </td>
+                  <td class="auto-style1">
+                     <asp:Button ID="Button3" runat="server" Text="Cancel" OnClick="btn_cancel_Click" />
                  </td>
              </tr>   
          </table>
