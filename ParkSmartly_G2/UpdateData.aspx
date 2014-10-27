@@ -30,7 +30,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="t1" style="height: 700px; width: 760px; opacity: 0.9; float: left; margin-left: 20px; margin-top: 15px;margin-bottom:10px">
      <div style="height: 40px; width: 312px; margin-left:240px";><h3>Manage DataBase</h3></div>
-          <table class="t1" style="width:300px; margin-left:120px;">
+          <table class="t1" style="width:528px; margin-left:120px;margin-bottom:10px">
           <tr>
                 <td colspan="3" class="auto-style3">&nbsp;<asp:Label ID="Label1" runat="server" Text="TO Add Single Data:" ForeColor="#993399" Visible="true"></asp:Label>
                     <asp:Label ID="Lbl_err" runat="server" Text="Something went wrong" ForeColor="Red" Visible="false"></asp:Label>
@@ -56,7 +56,7 @@
          </tr>
          <tr>
                 <td class="auto-style6">&nbsp;Floor No:</td>
-             <td class="auto-style7"><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+             <td class="auto-style7"><asp:TextBox ID="Tb_flr2" runat="server"></asp:TextBox></td>
                 
             </tr>
             <tr>
@@ -90,7 +90,7 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <asp:SqlDataSource ID="DataSource_grid" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT [Floor], [space], [Id] FROM [ParkingInformation]"  UpdateCommand="Update [ParkingInformation] Set [Floor]=@Floor, [space]=@space where [Id]=@Id" DeleteCommand="Delete from [ParkingInformation] where [Id]=@Id"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="DataSource_grid" runat="server" ConnectionString="<%$ ConnectionStrings:Park_smartly_conStr %>" SelectCommand="SELECT [Floor], [space], [Id] FROM [ParkingInformation]"  UpdateCommand="Update [ParkingInformation] Set [Floor]=@Floor, [space]=@space where [Id]=@Id" DeleteCommand="Delete from [ParkingInformation] where [Id]=@Id"></asp:SqlDataSource>
             </div>
      </div>
 
