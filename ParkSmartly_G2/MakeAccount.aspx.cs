@@ -34,7 +34,7 @@ public partial class MakeAccount : System.Web.UI.Page
         {
             SqlConnection cnctn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
             cnctn.Open();
-            string cmdstr = "Insert into Registration (FirstName,LastName,Gender,Address,City,PostalCode,ContactNo,UserName,Password,EmailID,Birthdate,BloodGroup) values (@FirstName,@LastName,@Gender,@Address,@City,@PostalCode,@ContactNo,@UserName,@Password,@EmailID,@Birthdate,@BloodGroup) ";
+            string cmdstr = "Insert into Registration (FirstName,LastName,Gender,Address,City,PostalCode,ContactNo,UserName,Password,EmailID,BloodGroup) values (@FirstName,@LastName,@Gender,@Address,@City,@PostalCode,@ContactNo,@UserName,@Password,@EmailID,@BloodGroup) ";
 
             SqlCommand insertUser = new SqlCommand(cmdstr, cnctn);
             insertUser.Parameters.AddWithValue("@FirstName", Tb_fname.Text);
@@ -47,7 +47,6 @@ public partial class MakeAccount : System.Web.UI.Page
             insertUser.Parameters.AddWithValue("@UserName", Tb_usnm.Text);
             insertUser.Parameters.AddWithValue("@Password", Tb_lname.Text + Tb_pocd.Text);
             insertUser.Parameters.AddWithValue("@EmailID", tb_email.Text);
-            insertUser.Parameters.AddWithValue("@Birthdate", Tb_bdate.Text);
             insertUser.Parameters.AddWithValue("@BloodGroup", DropDown_blgr.SelectedItem.ToString());
 
 

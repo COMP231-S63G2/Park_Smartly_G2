@@ -153,15 +153,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="Tb_usnm" ErrorMessage="Please, Enter contact number" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
-            <tr><td class="auto-style4">Birth Date</td><td class="auto-style4">
-                    <asp:TextBox ID="Tb_bdate" runat="server"></asp:TextBox>
-                <%--<asp:ImageButton ID="ImageButton1"  ImageUrl="Images/cal_date.png" Height="25px" Width="25px" OnClick="ImageButton1_Click" runat="server" />--%>
-                </td>
                   
-                <td class="auto-style9">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="Tb_bdate" ErrorMessage="Birthdate required" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
-                 </tr>        
             <tr><td class="auto-style13">Blood Group</td><td class="auto-style13">
                 <asp:DropDownList ID="DropDown_blgr" runat="server">
                     <asp:ListItem>Select</asp:ListItem>
