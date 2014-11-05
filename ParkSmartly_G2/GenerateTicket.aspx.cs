@@ -19,4 +19,16 @@ public partial class GenerateTicket : System.Web.UI.Page
     {
 
     }
+    protected void Btn_clr_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Btn_print_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Btn_gnrt_resrd_Click(object sender, EventArgs e)
+    {
+
+    }
 }

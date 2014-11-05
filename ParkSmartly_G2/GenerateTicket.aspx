@@ -6,55 +6,89 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
-    <div class="t1" style="height: 720px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 100px">
-        <div style="height: 40px; width: 312px; margin-left: 80px;">
-            <h2>Generate Tickets</h2>
-        </div>
-        <div style="width: 200px; height: 400px">
-            <div style="width: 300px; float: left">
-                <table style="width: 32%; margin-top: 25px; margin-left: 50px; height: 98px;">
-                    <tr>
-                        <td>&nbsp;Hours:</td>
-                        <td>&nbsp;
-                           <asp:TextBox ID="Tbox_un" runat="server" Width="110px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;Number Plate:</td>
-                        <td>&nbsp;
-                            <asp:TextBox ID="Tbox_nplate" runat="server" Width="110px"></asp:TextBox></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Button ID="Btn_gnrt" runat="server" OnClick="Btn_gnrt_Click" Text="Generate" Width="100px" /></td>
-                        <td style="float: left; margin-left: 20px">
+    <%--UI designed By darshan #30--%>
+    
+    <div class="t1" style="height: 570px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
 
-                            <asp:Button ID="Btn_rst" runat="server" OnClick="Btn_rst_Click" Text="Reset" Width="100px" /></td>
-                    </tr>
-                </table>
-            </div>
-            <div style="height: 40px; width: 312px; margin-left: 80px;">
-                <h2>Generated Ticket</h2>
-            </div>
-            <div style="margin-left: 25px; float: left; margin-top: 80px; border: double; border-color: #ddbbea; height: 390px; width: 355px">
-            </div>
-            <div style="margin-left: 260px; margin-top: 320px;">
+        <div style="width: 708px; height: 400px; margin-top: 20px">
+            <div style="width: 300px; height: 500px; float: left">
+                <div class="panel panel-default" style="width: 330px; margin-left: 20px">
+                    <div class="panel-heading">
+                        <h3 class="panel-title-wht">Generate Tickets</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <asp:Label ID="Label1" Style="padding-right: 10px" runat="server" class="col-sm-5 control-label" Text="License Plate:"></asp:Label>
+                            <div class="col-sm-4" style="padding-left: 0px;">
+                                <asp:TextBox ID="Tb_noPlt" class="form-control" runat="server" Width="110px"></asp:TextBox>
+                            </div>
+                            <div class="col-sm-2" style="padding-left: 10px;">
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Tb_noPlt" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                <table>
-                    <tr>
-                        <td>&nbsp;
-                           <asp:Button ID="Button1" runat="server" Text="Print" Width="100px" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;
-                          <asp:Button ID="Button2" runat="server" Text="Clear" Width="100px" /></td>
-                    </tr>
-                </table>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 30px;">
+                            <asp:Label ID="Label2" runat="server" Style="padding-left: 62px" class="col-sm-5 control-label" Text="Hours:"></asp:Label>
+                            <div class="col-sm-4" style="padding-left: 0px;">
+                                <asp:TextBox ID="Tb_hours" class="form-control" runat="server" Width="110px"></asp:TextBox>
+                            </div>
+                            <div class="col-sm-2" style="padding-left: 20px;">
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Tb_hours" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
 
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 60px;">
+                            <div class="col-sm-5 control-label">
+                                <asp:Button ID="Button1" class="btn btn-default" runat="server" OnClick="Btn_rst_Click" Text="Reset" Width="100px" />
+                            </div>
+                            <div class="col-sm-4" style="padding-left: 0px;">
+                                <asp:Button ID="Button2" class="btn btn-default" runat="server" OnClick="Btn_gnrt_Click" Text="Generate" Width="110px" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel panel-default" style="width: 330px; margin-left: 20px;margin-top:60px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title-wht">Generate Ticket For Reserved Space</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <asp:Label ID="Label3" Style="padding-right: 10px" runat="server" class="col-sm-5 control-label" Text="Reference No:"></asp:Label>
+                        <div class="col-sm-4" style="padding-left: 0px;">
+                            <asp:TextBox ID="TB_reference_no" class="form-control" runat="server" Width="110px"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2" style="padding-left: 10px;">
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TB_reference_no" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 30px;">
+                            <div class="col-sm-5 control-label">
+                                   </div>
+                            <div class="col-sm-4" style="padding-left: 0px;">
+                                <asp:Button ID="Btn_gnrt_resrd" class="btn btn-default" runat="server" OnClick="Btn_gnrt_resrd_Click" Text="Generate" Width="110px" />
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </div>
+            <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 340px">
+                <div id="printPanel" style="padding-left: 20px; margin-left: 0px; height: 380px; width: 340px">
+                </div>
+                <div class="form-group" style="margin-top: 20px; margin-left: 150px">
+                    <div class="col-sm-4 control-label">
+                        <asp:Button ID="Btn_clr" class="btn btn-default" runat="server" OnClick="Btn_clr_Click" Text="Clear" Width="80px" />
+                    </div>
+                    <div class="col-sm-4" style="padding-left: 40px;">
+                        <asp:Button ID="Btn_print" class="btn btn-default" runat="server" OnClick="Btn_print_Click" Text="Print" Width="80px" />
+                    </div>
+                </div>
 
             </div>
+            
+
         </div>
     </div>
-   </div></asp:Content>
+</asp:Content>
 
