@@ -74,7 +74,7 @@ public partial class MakeAccount : System.Web.UI.Page
         tb_email.Text = null;
         Tb_usnm.Text = null;
         Tb_pocd.Text = null;
-        Tb_bdate.Text = null;
+       
 
         DropDown_pro.SelectedIndex = 0;
         DropDown_gen.SelectedIndex = 0;
