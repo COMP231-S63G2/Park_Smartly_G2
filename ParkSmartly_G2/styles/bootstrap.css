@@ -5775,6 +5775,7 @@ to {
 
 .progress {
     height: 20px;
+     width: 300px;
     margin-bottom: 20px;
     overflow: hidden;
     background-color: #f5f5f5;
@@ -5785,13 +5786,13 @@ to {
 
 .progress-bar {
     float: left;
-    width: 0;
+    width: 200px;
     height: 100%;
     font-size: 12px;
     line-height: 20px;
-    color: #fff;
+    color: #b053e8;
     text-align: center;
-    background-color: #428bca;
+    background-color: #c573d5;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
     -webkit-transition: width .6s ease;
