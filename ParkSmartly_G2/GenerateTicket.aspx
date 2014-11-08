@@ -2,11 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="styles/bootstrap.css" rel="stylesheet" />
-
+     <style type="text/css">
+        .auto-style1 {
+            width: 88%;
+            border-style: solid;
+            border-width: 1px;
+            height: 56px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <div class="t1" style="height: 570px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
+    <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
 
         <div style="width: 708px; height: 400px; margin-top: 20px">
             <div style="width: 300px; height: 500px; float: left">
@@ -78,10 +85,83 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 340px">
-                <div id="printPanel" style="padding-left: 20px; margin-left: 0px; height: 380px; width: 340px">
+            <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 320px">
+                <div id="printPanel" style="padding-left: 7px; margin-left: 0px; height: 360px; width: 310px">
+                    <div style="height: 380px; width: 310px">
+                        <div style="height: 20px; width: 310px; margin-top: 10px; margin-bottom: 10px">
+                            <asp:Label ID="lblTitle" runat="server" Font-Size="X-Large" Text="Welcome to ParkSmartly.Inc"></asp:Label>
+                        </div>
+                        <asp:Label ID="Label4" runat="server">-----------------------------------------------------------</asp:Label>
+                        <div style="height: 20px; width: 300px; margin-top: 5px; margin-bottom: 5px; text-align:center">
+                            <asp:Label ID="Label13" runat="server" Text="7/11/2014"></asp:Label>
+                        </div>
+                        <div style="height: 90px; width: 310px; margin-left: 20px">
+                            <div class="form-group">
+                                <asp:Label ID="Label7" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Parking Floor:"></asp:Label>
+                                <asp:Label ID="Label8" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="Ground Floor" Font-Bold="True"></asp:Label>
+                            </div>
+
+                            <div class="form-group">
+                                <asp:Label ID="Label9" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Space:"></asp:Label>
+                                <asp:Label ID="Label10" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="55" Font-Bold="True"></asp:Label>
+                            </div>
+
+                            <div class="form-group">
+                                <asp:Label ID="Label14" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Amount:"></asp:Label>
+                                <asp:Label ID="Label15" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="55" Font-Bold="True"></asp:Label>
+                            </div>
+                            <div class="form-group">
+                                <asp:Label ID="Label16" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Licence Plate:"></asp:Label>
+                                <asp:Label ID="Label17" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="55" Font-Bold="True"></asp:Label>
+                            </div>
+                        </div>
+                        <table class="auto-style1" style="margin-top: 10px; margin-left: 15px">
+                            <tr>
+                                <td colspan="2" style="border-style: none none solid none; border-bottom-width: 1px; padding-left: 80px">&nbsp;
+                                <asp:Label ID="Label12" runat="server" Text="Time Limit" Font-Bold="True"></asp:Label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">&nbsp;Time In:</td>
+                                <td>&nbsp;
+                                <asp:Label ID="Label5" runat="server" Text="55:11:@@" Font-Bold="True"></asp:Label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">&nbsp;Time Out:</td>
+                                <td>&nbsp;
+                                <asp:Label ID="Label11" runat="server" Text="55:11:22" Font-Bold="True"></asp:Label>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">&nbsp;Hours:</td>
+                                <td>&nbsp;
+                                <asp:Label ID="Label18" runat="server" Text="55:11:@@4" Font-Bold="True"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+                            <asp:Label ID="Label6" runat="server">-----------------------------------------------------------</asp:Label>
+                        </div>
+                        <div style="height: 20px; width: 310px; margin-top: 1px; text-align: center">
+                            <asp:Label ID="Label19" runat="server" Text="Make Reservation for Parking Space."></asp:Label>
+                        </div>
+                        <div style="height: 20px; width: 310px; margin-top: 1px; text-align: center">
+                            <asp:Label ID="Label20" runat="server" Text="www.parksmartly.com"></asp:Label>
+                        </div>
+                        <div style="height: 20px; width: 310px; margin-top: 1px; text-align: center">
+                            <asp:Label ID="Label21" runat="server" Text="Thank You."></asp:Label>
+                            <asp:Label ID="Label22" runat="server" Text="Please Come Again."></asp:Label>
+                        </div>
+                        <div style="height: 20px; width: 310px; margin-top: 1px; text-align: center">
+                        </div>
+                    </div>
+
                 </div>
-                <div class="form-group" style="margin-top: 20px; margin-left: 150px">
+                <div class="form-group" style="margin-top: 25px; margin-left: 130px">
                     <div class="col-sm-4 control-label">
                         <asp:Button ID="Btn_clr" class="btn btn-default" runat="server" OnClick="Btn_clr_Click" Text="Clear" Width="80px" />
                     </div>
@@ -89,7 +169,6 @@
                         <asp:Button ID="Btn_print" class="btn btn-default" runat="server" OnClick="Btn_print_Click" Text="Print" Width="80px" />
                     </div>
                 </div>
-
             </div>
 
 
