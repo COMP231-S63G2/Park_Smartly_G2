@@ -92,27 +92,33 @@
                             <asp:Label ID="lblTitle" runat="server" Font-Size="X-Large" Text="Welcome to ParkSmartly.Inc"></asp:Label>
                         </div>
                         <asp:Label ID="Label4" runat="server">-----------------------------------------------------------</asp:Label>
-                        <div style="height: 20px; width: 300px; margin-top: 5px; margin-bottom: 5px; text-align:center">
-                            <asp:Label ID="Label13" runat="server" Text="7/11/2014"></asp:Label>
+
+                        <div style="height:20px;width:300px">
+                            <div style="height: 20px;float:left; width: 150px; margin-top: 5px; margin-bottom: 5px; text-align: left">
+                                <asp:Label ID="Lbl_dt" runat="server" Text=""></asp:Label>
+                            </div>
+                            <div style="height: 20px; width: 150px;margin-left:150px; margin-top: 5px; margin-bottom: 5px; text-align: right">
+                                <asp:Label ID="Lbl_t_id" runat="server" Text=""></asp:Label>
+                            </div>
                         </div>
                         <div style="height: 90px; width: 310px; margin-left: 20px">
                             <div class="form-group">
                                 <asp:Label ID="Label7" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Parking Floor:"></asp:Label>
-                                <asp:Label ID="Label8" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="Ground Floor" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="lbl_flor" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="" Font-Bold="True"></asp:Label>
                             </div>
 
                             <div class="form-group">
                                 <asp:Label ID="Label9" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Space:"></asp:Label>
-                                <asp:Label ID="Label10" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="55" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_spc" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="" Font-Bold="True"></asp:Label>
                             </div>
 
                             <div class="form-group">
                                 <asp:Label ID="Label14" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Amount:"></asp:Label>
-                                <asp:Label ID="Label15" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="55" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_amount" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="" Font-Bold="True"></asp:Label>
                             </div>
                             <div class="form-group">
                                 <asp:Label ID="Label16" Style="text-align: right; padding-right: 5px" runat="server" class="col-sm-5 control-label" Text="Licence Plate:"></asp:Label>
-                                <asp:Label ID="Label17" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="55" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_Lplate" Style="padding-right: 20px; padding-left: 5px" runat="server" class="col-sm-5" Text="" Font-Bold="True"></asp:Label>
                             </div>
                         </div>
                         <table class="auto-style1" style="margin-top: 10px; margin-left: 15px">
@@ -123,23 +129,23 @@
 
                             </tr>
                             <tr>
-                                <td style="text-align: right;">&nbsp;Time In:</td>
+                                <td style="text-align: right;" class="auto-style3">&nbsp;Time In:</td>
                                 <td>&nbsp;
-                                <asp:Label ID="Label5" runat="server" Text="55:11:@@" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_timeIn" runat="server" Text="" Font-Bold="True"></asp:Label>
                                 </td>
 
                             </tr>
                             <tr>
-                                <td style="text-align: right;">&nbsp;Time Out:</td>
+                                <td style="text-align: right;" class="auto-style3">&nbsp;Time Out:</td>
                                 <td>&nbsp;
-                                <asp:Label ID="Label11" runat="server" Text="55:11:22" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_timeOut" runat="server" Text="" Font-Bold="True"></asp:Label>
                                 </td>
 
                             </tr>
                             <tr>
-                                <td style="text-align: right;">&nbsp;Hours:</td>
-                                <td>&nbsp;
-                                <asp:Label ID="Label18" runat="server" Text="55:11:@@4" Font-Bold="True"></asp:Label>
+                                <td style="text-align: right;" class="auto-style4">&nbsp;Hours:</td>
+                                <td class="auto-style2">&nbsp;
+                                <asp:Label ID="Lbl_hrs" runat="server" Text="" Font-Bold="True"></asp:Label>
                                 </td>
                             </tr>
                         </table>

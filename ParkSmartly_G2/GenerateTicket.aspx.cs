@@ -30,7 +30,7 @@ public partial class GenerateTicket : System.Web.UI.Page
             if (Int32.Parse(availability) > 0)
             {
 
-                string spc = null, flr = null;
+                string spc = null, flr = null, tid = null;
 
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
                 conn.Open();
@@ -43,6 +43,8 @@ public partial class GenerateTicket : System.Web.UI.Page
 
                     spc = dr["space"].ToString();
                     flr = dr["Floor"].ToString();
+                    tid = dr["id"].ToString();
+
 
                 }
                 dr.Close();
@@ -83,6 +85,18 @@ public partial class GenerateTicket : System.Web.UI.Page
                 SqlCommand updtSpc = new SqlCommand(cmdstrng, cn);
                 updtSpc.Parameters.AddWithValue("@floor", flr);
                 updtSpc.ExecuteNonQuery();
+
+                Lbl_dt.Text = CurntDateTime.ToString("dd/MM/yyyy").ToString();
+                Lbl_t_id.Text = "Ticket Id: " + tid;
+                lbl_flor.Text = "Floor " + flr;
+                Lbl_spc.Text = spc;
+                int hors = Int32.Parse(Tb_hours.Text);
+                Lbl_amount.Text = ((hors) * 8).ToString();
+                Lbl_Lplate.Text = (Tb_noPlt.Text).ToString();
+                Lbl_timeIn.Text = (((CurntDateTime.Hour + 11) % 12) + 1).ToString() + ":" + CurntDateTime.ToString("mm tt").ToString();
+                Lbl_timeOut.Text = (((ExitTime.Hour + 11) % 12) + 1).ToString() + ":" + ExitTime.ToString("mm tt").ToString();
+                Lbl_hrs.Text = hors.ToString();
+
 
             }
             else { Lbl_nospc.Visible = true; }
