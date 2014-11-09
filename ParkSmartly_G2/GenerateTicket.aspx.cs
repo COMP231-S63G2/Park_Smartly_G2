@@ -11,10 +11,15 @@ public partial class GenerateTicket : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Lbl_nospc.Visible = false;
     }
     protected void Btn_gnrt_Click(object sender, EventArgs e)
     {
+
+        int hors = Int32.Parse(Tb_hours.Text);
+
+        String amt = ((hors) * 8).ToString();
+        Label10.Text = amt + " CAD";
         String availability = null;
         try
         {
@@ -52,7 +57,7 @@ public partial class GenerateTicket : System.Web.UI.Page
 
                 SqlConnection cnc = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
                 cnc.Open();
-                string cmdstr = "update ParkingInformation Set Allocated = 'True',Date=@date,Number_Plate=@Num_Plate,Hours=@Hours,ExitTime=@exitTime where Floor=@floor and Space=@space;";
+                string cmdstr = "update ParkingInformation Set Allocated = 'True',Date=@date,Number_Plate=@Num_Plate,Hours=@Hours,ExitTime=@exitTime,Amount=@amount where Floor=@floor and Space=@space;";
 
                 DateTime CurntDateTime = DateTime.Now;
                 string Datetime = CurntDateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -68,7 +73,7 @@ public partial class GenerateTicket : System.Web.UI.Page
                 insertData.Parameters.AddWithValue("@floor", flr);
                 insertData.Parameters.AddWithValue("@space", spc);
                 insertData.Parameters.AddWithValue("@exitTime", ExtTime);
-
+                insertData.Parameters.AddWithValue("@amount", amt);
                 try
                 {
                     insertData.ExecuteNonQuery();
@@ -90,14 +95,14 @@ public partial class GenerateTicket : System.Web.UI.Page
                 Lbl_t_id.Text = "Ticket Id: " + tid;
                 lbl_flor.Text = "Floor " + flr;
                 Lbl_spc.Text = spc;
-                int hors = Int32.Parse(Tb_hours.Text);
-                Lbl_amount.Text = ((hors) * 8).ToString();
+
+                Lbl_amount.Text = ((hors) * 8).ToString() + " CAD";
                 Lbl_Lplate.Text = (Tb_noPlt.Text).ToString();
                 Lbl_timeIn.Text = (((CurntDateTime.Hour + 11) % 12) + 1).ToString() + ":" + CurntDateTime.ToString("mm tt").ToString();
                 Lbl_timeOut.Text = (((ExitTime.Hour + 11) % 12) + 1).ToString() + ":" + ExitTime.ToString("mm tt").ToString();
                 Lbl_hrs.Text = hors.ToString();
 
-
+                printDiv.Attributes.Add("style", "visibility:visible;");
             }
             else { Lbl_nospc.Visible = true; }
         }
@@ -115,12 +120,17 @@ public partial class GenerateTicket : System.Web.UI.Page
     }
     protected void Btn_clr_Click(object sender, EventArgs e)
     {
+        table1.Visible = false; lblTitle.Visible = false; Lbl_dt.Visible = false;
+        Lbl_t_id.Visible = false; lbl_flor.Visible = false; Lbl_spc.Visible = false;
+        Lbl_amount.Visible = false; Lbl_Lplate.Visible = false; Lbl_timeIn.Visible = false;
+        Lbl_timeOut.Visible = false; Lbl_hrs.Visible = false; Label11.Visible = false;
+        Label12.Visible = false; Label19.Visible = false; Label20.Visible = false;
+        Label21.Visible = false; Label22.Visible = false; Label4.Visible = false;
+        Label5.Visible = false; Label6.Visible = false; Label7.Visible = false;
+        Label9.Visible = false;
 
     }
-    protected void Btn_print_Click(object sender, EventArgs e)
-    {
 
-    }
     protected void Btn_gnrt_resrd_Click(object sender, EventArgs e)
     {
 
