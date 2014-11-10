@@ -9,11 +9,11 @@ using System.Web.UI.WebControls;
 
 public partial class ExitTimeChecking : System.Web.UI.Page
 {
-    string date, id, spc, flr, l_plt, hrs, amt = "0", E_tm = null;
-    int Exc_hours = '0';
+    static string date, id, spc, flr, l_plt, hrs, amt, E_tm = null;
+    static int Exc_hours = '0';
     protected void Page_Load(object sender, EventArgs e)
     {
-        amt = "0";
+
         Exc_hours = '0';
     }
     protected void Btn_check_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ public partial class ExitTimeChecking : System.Web.UI.Page
                     l_plt = dr["Number_Plate"].ToString();
                     hrs = dr["Hours"].ToString();
                     E_tm = dr["ExitTime"].ToString();
-
+                    amt = dr["Amount"].ToString();
                 }
                 dr.Close();
                 cnn.Close();
@@ -102,11 +102,24 @@ public partial class ExitTimeChecking : System.Web.UI.Page
             }
             else { Exc_hours = span.Hours; }
             if (span.Minutes != 0) { Exc_hours = Exc_hours + 1; }
-            lbl_excd_by.Text = "Time exceeded by " + timediff + " Hours";
-            String excd_amt = (Exc_hours).ToString();
-            lbl_exc_amt.Visible = true;
+            if (span.Days == 0)
+            {
+                lbl_excd_by.Text = "Time exceeded by " + timediff + " Hours";
 
-            lbl_exc_amt.Text = "Charged Amount : " + (Int32.Parse((excd_amt).ToString()) * 10).ToString() + "$";
+                String excd_amt = (Exc_hours).ToString();
+                lbl_exc_amt.Visible = true;
+
+                lbl_exc_amt.Text = "Charged Amount : " + (Int32.Parse((excd_amt).ToString()) * 10).ToString() + "$";
+            }
+            else
+            {
+                lbl_excd_by.Text = String.Format("Time exceeded by {0} days and {1} Hours ", span.Days, timediff);
+
+                String excd_amt = (Exc_hours).ToString();
+                lbl_exc_amt.Visible = true;
+
+                lbl_exc_amt.Text = "Charged Amount : " + ((Int32.Parse((span.Days).ToString()) * 240) + (Int32.Parse((excd_amt).ToString()) * 10)).ToString() + "$";
+            }
         }
         else
         {
@@ -127,6 +140,52 @@ public partial class ExitTimeChecking : System.Web.UI.Page
     }
     protected void Btn_check_out_Click(object sender, EventArgs e)
     {
+        //Clear data into parinfo table 
+        try
+        {
+            SqlConnection cnc = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+            cnc.Open();
+            string cmdstr = "update ParkingInformation Set Allocated = 'False',Date=Null,Number_Plate=Null,Hours=Null,ExitTime=Null,Amount=Null where Floor=@floor and Space=@space;";
+
+            SqlCommand insertData = new SqlCommand(cmdstr, cnc);
+
+            insertData.Parameters.AddWithValue("@floor", flr);
+            insertData.Parameters.AddWithValue("@space", spc);
+
+
+            insertData.ExecuteNonQuery();
+            cnc.Close();
+
+        }
+        catch (Exception ex) { Response.Write("Something went wrong."); }
+
+        SqlConnection cnctn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+        cnctn.Open();
+        string cmstr = "Insert into ParkingHistory (floor,space,entryTime,exitTime,realExitTime,number_Plate,hours,amount) values (@floor,@space,@entryTime,@exitTime,@realExitTime,@number_Plate,@hours,@amount) ";
+
+        DateTime CurntDateTime = DateTime.Now;
+        string Datetime = CurntDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+
+        SqlCommand insertUser = new SqlCommand(cmstr, cnctn);
+        insertUser.Parameters.AddWithValue("@floor", flr);
+        insertUser.Parameters.AddWithValue("@space", spc);
+        insertUser.Parameters.AddWithValue("@entryTime", date);
+        insertUser.Parameters.AddWithValue("@exitTime", E_tm);
+        insertUser.Parameters.AddWithValue("@realExitTime", Datetime);
+        insertUser.Parameters.AddWithValue("@number_Plate", l_plt);
+        insertUser.Parameters.AddWithValue("@hours", hrs);
+        insertUser.Parameters.AddWithValue("@amount", amt);
+
+        try
+        {
+            insertUser.ExecuteNonQuery();
+            cnctn.Close();
+        }
+        catch (Exception ex) { Response.Write("Something went wrong....Better luck next time"); }
+
+
 
     }
 }
