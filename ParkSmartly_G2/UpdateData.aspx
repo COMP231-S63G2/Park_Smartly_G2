@@ -26,9 +26,29 @@
             height: 38px;
         }
     </style>
+<script runat="server">
+
+    protected void Btn_mkAcc_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("MakeAccount.aspx");
+    }
+    protected void Btn_updt_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("UpdateData.aspx");
+    }
+       
+    </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="t1" style="height: 700px; width: 760px; opacity: 0.9; float: left; margin-left: 20px; margin-top: 15px;margin-bottom:10px">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <div class="btn-group btn-group-justified" style="width: 590px;; margin-left: 100px">
+        <div class="btn-group">
+            <asp:Button ID="Btn_mkAcc" class="btn btn-default" runat="server" OnClick="Btn_mkAcc_Click" CausesValidation="false" Text="Generate Ticket" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_updt" class="btn btn-default" runat="server" OnClick="Btn_updt_Click" CausesValidation="false" Text="Allocated Spaces" />
+        </div>
+    </div>   <div class="t1" style="height: 700px; width: 760px; opacity: 0.9; float: left; margin-left: 20px; margin-top: 15px;margin-bottom:10px">
      <div style="height: 40px; width: 312px; margin-left:240px";><h3>Manage DataBase</h3></div>
           <table class="t1" style="width:528px; margin-left:120px;margin-bottom:10px">
           <tr>

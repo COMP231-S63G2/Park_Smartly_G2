@@ -1,8 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AllocatedSpaces.aspx.cs" Inherits="AllocatedSpaces" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script runat="server">
+
+        protected void Btn_gent_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GenerateTicket.aspx");
+        }
+        protected void Btn_alct_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AllocatedSpaces.aspx");
+        }
+        protected void Btn_extc_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ExitTimeChecking.aspx");
+        }
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <div class="btn-group btn-group-justified" style="width: 800px; margin-left: 10px">
+        <div class="btn-group">
+            <asp:Button ID="Btn_gent" class="btn btn-default" runat="server" OnClick="Btn_gent_Click" CausesValidation="false" Text="Generate Ticket" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_alct" class="btn btn-default" runat="server" OnClick="Btn_alct_Click" CausesValidation="false" Text="Allocated Spaces" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_extc" class="btn btn-default" runat="server" OnClick="Btn_extc_Click" CausesValidation="false" Text="Exit Check out" />
+        </div>
+    </div>
     <div class="t1" style="height: 550px; width: 760px; float: left; margin-left: 20px; margin-top: 10px; margin-bottom: 10px">
 
         <div style="height: 45px; margin-left: 270px; width: 200px;">

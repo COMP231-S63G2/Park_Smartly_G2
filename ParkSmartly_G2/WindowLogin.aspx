@@ -23,7 +23,7 @@
             <h2>Window Login</h2>
         </div>
 
-        <table  style="width: 86%; margin-top: 25px; margin-left: 50px; border-spacing: 2px;">
+        <table  style="width: 92%; margin-top: 25px; margin-left: 50px; border-spacing: 2px;">
             <tr>
                 <td></td>
                 <td colspan="2">

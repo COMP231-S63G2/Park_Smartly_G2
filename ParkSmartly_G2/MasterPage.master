@@ -16,21 +16,33 @@
             <div style="background-color: #ebe7e7">
                 <div id="topContent" style="background-color: #7c5e90; width: auto">
                     <h1 style="margin: 0px; padding: 25px; font-family: Arial; color: white;">Park Smartly</h1>
-
-                    <asp:LinkButton ID="lnkbtnLogout" runat="server" OnClick="lnkbtnLogout_Click" Text="Logout"></asp:LinkButton>
+                    <div style="text-align: right; padding-right: 20px; padding-bottom: 5px">
+                        <asp:LinkButton ID="btnLogout_adm" runat="server" OnClick="btnLogout_adm_Click" CausesValidation="false" Text="Admin" ForeColor="White"></asp:LinkButton>
+                    </div>
                 </div>
 
                 <div class="container">
-                    <div id="leftCntnt" class="col-sm-3" style="margin-top: 10px; height: 300px">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="HomePage.aspx">Home</a></li>
-                            <li><a href="WindowLogin.aspx">Login</a></li>
-                            <li><a href="SearchLocation.aspx">Search Car Location</a></li>
-                            <li><a href="ExtendTime.aspx">Extend Parking Time</a></li>
-                            <li><a href="BookOnline.aspx">Book Online</a></li>
-                            <li><a href="Reports.aspx">Check Reports</a></li>
-                            <li><a href="Aboutus.aspx">About Us</a></li>
-                        </ul>
+                    <div id="leftCntnt" class="col-sm-3" style="margin-top: 10px; height: 600px">
+                        <div id="Div2" style="height: 300px">
+
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="HomePage.aspx">Home</a></li>
+                                <li>
+                                    <asp:LinkButton ID="wi_login" runat="server" OnClick="wi_login_Click" CausesValidation="false">Login</asp:LinkButton></li>
+                                <li><a href="SearchLocation.aspx">Search Car Location</a></li>
+                                <li><a href="ExtendTime.aspx">Extend Parking Time</a></li>
+                                <li><a href="BookOnline.aspx">Book Online</a></li>
+                                <li><a href="Reports.aspx">Check Reports</a></li>
+                                <li><a href="Aboutus.aspx">About Us</a></li>
+                            </ul>
+                        </div>
+                        <div id="lnkLogout" runat="server" style="height: 300px; width: 255px;">
+                            <ul class="nav nav-pills nav-stacked" style="">
+                                <li><a href="ChangePassword.aspx">Change Password</a></li>
+                                <li>
+                                    <asp:LinkButton ID="lnkbtnLogout" runat="server" OnClick="lnkbtnLogout_Click" CausesValidation="false">Logout</asp:LinkButton></li>
+                            </ul>
+                        </div>
                     </div>
                     <div id="mainCntnt" class="col-sm-9" style="margin-top: 10px;">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

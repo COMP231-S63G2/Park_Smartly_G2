@@ -10,8 +10,41 @@
             height: 56px;
         }
     </style>
+    <script runat="server">
+
+        protected void Btn_gent_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GenerateTicket.aspx");
+        }
+        protected void Btn_alct_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AllocatedSpaces.aspx");
+        }
+        protected void Btn_extc_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ExitTimeChecking.aspx");
+        }
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <div class="btn-group btn-group-justified" style="width: 800px; margin-left: 10px">
+        <div class="btn-group">
+            <asp:Button ID="Btn_gent" class="btn btn-default" runat="server" OnClick="Btn_gent_Click" CausesValidation="false" Text="Generate Ticket" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_alct" class="btn btn-default" runat="server" OnClick="Btn_alct_Click" CausesValidation="false" Text="Allocated Spaces" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_extc" class="btn btn-default" runat="server" OnClick="Btn_extc_Click" CausesValidation="false" Text="Exit Check out" />
+        </div>
+    </div>
+
+
+
+
+
 
     <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
 

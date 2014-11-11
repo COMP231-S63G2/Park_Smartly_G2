@@ -21,9 +21,9 @@ public partial class AdminLogin : System.Web.UI.Page
         SqlCommand getpasswrd = new SqlCommand(cmndstr_psd, con);
         string password = getpasswrd.ExecuteScalar().ToString();
         con.Close();
-        
         if (password == Tbox_pass.Text)
         {
+            Session["admin"] = Tbox_un.Text;
             Response.Redirect("MakeAccount.aspx");
         }
         else { Lbl_invalid.Visible = true; }

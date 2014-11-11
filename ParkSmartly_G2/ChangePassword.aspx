@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <div class="t1" style="height: 300px; width: 550px; opacity: 0.9; float: left; margin-left: 100px; margin-top: 20px;margin-bottom:110px">
+     <div class="t1" style="height: 400px; width: 550px; opacity: 0.9; float: left; margin-left: 100px; margin-top: 20px;margin-bottom:110px">
      <div style="height: 40px; width: 312px; margin-left:110px";><h2>Change Password</h2></div>
     <table class="tabl" style="width:85%; margin-left:50px">
         <tr>

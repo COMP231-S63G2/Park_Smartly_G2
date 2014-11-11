@@ -50,6 +50,14 @@ public partial class ChangePassword : System.Web.UI.Page
     }
     protected void continue_Click(object sender, EventArgs e)
     {
-        Response.Redirect("GenerateTickets.aspx");
+        if (Session["user"] != null)
+        {
+            Response.Redirect("GenerateTicket.aspx");
+        }
+        else if (Session["admin"] != null)
+        {
+            Response.Redirect("MakeAccount.aspx");
+        }
+
     }
 }

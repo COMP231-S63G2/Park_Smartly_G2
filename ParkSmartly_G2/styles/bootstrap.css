@@ -4419,12 +4419,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
             position: relative;
             display: block;
             padding: 10px 15px;
+            background-color: #d9b7e6;
         }
 
             .nav > li > a:hover,
             .nav > li > a:focus {
                 text-decoration: none;
-                background-color: #eee;
+                color: #fff;
+                background-color: #ae62c8;
             }
 
         .nav > li.disabled > a {
