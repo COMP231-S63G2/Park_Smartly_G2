@@ -8,6 +8,10 @@
         {
             Response.Redirect("GenerateTicket.aspx");
         }
+        protected void Btn_cncl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CancelTicket.aspx");
+        }
         protected void Btn_alct_Click(object sender, EventArgs e)
         {
             Response.Redirect("AllocatedSpaces.aspx");
@@ -24,6 +28,9 @@
     <div class="btn-group btn-group-justified" style="width: 800px; margin-left: 10px">
         <div class="btn-group">
             <asp:Button ID="Btn_gent" class="btn btn-default" runat="server" OnClick="Btn_gent_Click" CausesValidation="false" Text="Generate Ticket" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_cncl" class="btn btn-default" runat="server" OnClick="Btn_alct_Click" CausesValidation="false" Text="Allocated Spaces" />
         </div>
         <div class="btn-group">
             <asp:Button ID="Btn_alct" class="btn btn-default" runat="server" OnClick="Btn_alct_Click" CausesValidation="false" Text="Allocated Spaces" />
@@ -89,19 +96,20 @@
 
                     </div>
                 </div>
-                  <div style="margin-left: 240px">
-                        <asp:Button ID="Btn_check_out" class="btn btn-default" runat="server" OnClick="Btn_check_out_Click" Text="Check Out" Width="110px" />
+                <div style="margin-left: 240px">
+                    <asp:Button ID="Btn_check_out" class="btn btn-default" runat="server" OnClick="Btn_check_out_Click" Text="Check Out" Width="110px" />
                 </div>
 
             </div>
-            <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 320px">
-                <div id="printPanel" style="padding-left: 7px; margin-left: 0px; height: 360px; width: 340px">
+            <div id="printBox" runat="server" style="visibility: visible;">
+                <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 320px">
+                    <div id="printPanel" style="padding-left: 7px; margin-left: 0px; height: 360px; width: 340px">
                         <div style="height: 380px; width: 310px">
                             <div style="height: 20px; width: 310px; margin-top: 10px; margin-bottom: 10px">
                                 <asp:Label ID="lblTitle" runat="server" Font-Size="X-Large" Text="Welcome to ParkSmartly.Inc"></asp:Label>
                             </div>
                             <asp:Label ID="Label4" runat="server">---------------------------------------------------------</asp:Label>
-                            <div style="height: 120px; width: 300px; margin-bottom: 5px;">
+                            <div style="height: 110px; width: 300px; margin-bottom: 5px;">
                                 <div style="height: 20px; width: 300px">
                                     <div style="height: 20px; float: left; width: 150px; padding-left: 15px; margin-top: 5px; margin-bottom: 5px; text-align: left">
                                         <asp:Label ID="Lbl_dt" runat="server" Text=""></asp:Label>
@@ -112,30 +120,30 @@
                                 </div>
                                 <div style="height: 20px; width: 300px; margin-top: 10px">
                                     <div style="height: 20px; float: left; width: 150px; text-align: right">
-                                        <asp:Label ID="Label7" runat="server" Text="Parking Floor:"></asp:Label>
+                                        <asp:Label ID="Label7" runat="server" Text="Licence Plate:"></asp:Label>
 
                                     </div>
                                     <div style="height: 20px; width: 150px; padding-left: 5px; margin-left: 150px; text-align: left">
-                                        <asp:Label ID="lbl_flor" runat="server" Text="" Font-Bold="True"></asp:Label>
+                                        <asp:Label ID="Lbl_Lplate" runat="server" Text="" Font-Bold="True"></asp:Label>
                                     </div>
                                 </div>
                                 <div style="height: 20px; width: 300px; margin-top: 5px">
                                     <div style="height: 20px; float: left; width: 150px; text-align: right">
-                                        <asp:Label ID="Label5" runat="server" Text="Space:"></asp:Label>
+                                        <asp:Label ID="Label5" runat="server" Text="Parking Floor:"></asp:Label>
+
+                                    </div>
+                                    <div style="height: 20px; width: 150px; margin-left: 150px; padding-left: 5px; text-align: left">
+                                        <asp:Label ID="Lbl_flr" runat="server" Text="" Font-Bold="True"></asp:Label>
+                                    </div>
+                                </div>
+
+                                <div style="height: 20px; width: 300px; margin-top: 5px">
+                                    <div style="height: 20px; float: left; width: 150px; text-align: right">
+                                        <asp:Label ID="Label11" runat="server" Text="Space:"></asp:Label>
 
                                     </div>
                                     <div style="height: 20px; width: 150px; margin-left: 150px; padding-left: 5px; text-align: left">
                                         <asp:Label ID="Lbl_spc" runat="server" Text="" Font-Bold="True"></asp:Label>
-                                    </div>
-                                </div>
-                   
-                                <div style="height: 20px; width: 300px; margin-top: 5px">
-                                    <div style="height: 20px; float: left; width: 150px; text-align: right">
-                                        <asp:Label ID="Label11" runat="server" Text="Licence Plate:"></asp:Label>
-
-                                    </div>
-                                    <div style="height: 20px; width: 150px; margin-left: 150px; padding-left: 5px; text-align: left">
-                                        <asp:Label ID="Lbl_Lplate" runat="server" Text="" Font-Bold="True"></asp:Label>
                                     </div>
                                 </div>
 
@@ -171,7 +179,7 @@
                             <div>
                                 <asp:Label ID="Label6" runat="server">---------------------------------------------------------</asp:Label>
                             </div>
-                            <div style="height: 20px; width: 300px; margin-top: 1px; text-align: center">
+                            <div style="height: 20px; width: 300px; margin-top: 5px; text-align: center">
                                 <asp:Label ID="Label19" runat="server" Text="Make Reservation for Parking Space."></asp:Label>
                             </div>
                             <div style="height: 20px; width: 300px; margin-top: 1px; text-align: center">
@@ -186,18 +194,18 @@
                         </div>
 
                     </div>
-                <div class="form-group" style="margin-top: 30px; margin-left: 130px">
-                    <div class="col-sm-4 control-label">
-                        <asp:Button ID="Btn_clr" class="btn btn-default" runat="server" OnClick="Btn_clr_Click" Text="Clear" Width="80px" />
+                    <div class="form-group" style="margin-top: 30px; margin-left: 130px">
+                        <div class="col-sm-4 control-label">
+                            <asp:Button ID="Btn_clr" class="btn btn-default" runat="server" OnClick="Btn_clr_Click" Text="Clear" Width="80px" />
 
-                    </div>
-                    <div class="col-sm-4" style="padding-left: 40px;">
-                        <asp:Button ID="Btn_print" class="btn btn-default" runat="server" OnClick="Btn_print_Click" Text="Print" Width="80px" />
+                        </div>
+                        <div class="col-sm-4" style="padding-left: 40px;">
+                            <asp:Button ID="Btn_print" class="btn btn-default" runat="server" OnClick="Btn_print_Click" Text="Print" Width="80px" />
 
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </asp:Content>
