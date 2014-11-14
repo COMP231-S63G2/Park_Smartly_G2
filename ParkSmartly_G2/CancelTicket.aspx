@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CancelTicket.aspx.cs" Inherits="CancelTicket" %>
-     <%--  UI page for Cancel Ticket option #70 --%>
+
+<%--  UI page for Cancel Ticket option #70 --%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="styles/bootstrap.css" rel="stylesheet" />
     <style type="text/css">
@@ -86,32 +87,38 @@
                                 <asp:Button ID="Btn_Cancel" class="btn btn-default" runat="server" OnClick="Btn_Cancel_Click" Text="Cancel" Width="110px" />
                             </div>
                         </div>
+                        <div class="form-group" style="margin-top: 100px;">
+                            <div class="col-sm-12 control-label">
+                                <asp:Label ID="Lbl_ntfnd" runat="server" Style="padding-left: 30px" ForeColor="Red" Text=""></asp:Label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="well well-lg" style="margin-left: 390px; border: 1px groove #CC99FF; height: 300px; width: 330px;">
-                <div class="form-group">
-                    <div style="padding-left: 0px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_lplt" runat="server" Text=""  Visible="true"></asp:Label>
-                    </div>
-                    <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_hrs" runat="server" Text=""  Visible="true"></asp:Label>
-                    </div>
-                    <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_rfnd" runat="server" Text=""  Visible="true"></asp:Label>
-                    </div>
-                    <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_flr" runat="server" Text=""  Visible="true"></asp:Label>
-                    </div>
-                    <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_spc" runat="server" Text=""  Visible="true"></asp:Label>
-                    </div>
-                    <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_date" runat="server" Text=""  Visible="true"></asp:Label>
+                <div id="sidedt">
+                    <div class="form-group">
+                        <div style="padding-left: 0px; height: 25px; width: 280px; text-align: center">
+                            <asp:Label ID="lbl_msg" runat="server" Text="Ticket cancelation Successfully done" ForeColor="Green" Visible="false"></asp:Label>
+                        </div>
+                        <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
+                            <asp:Label ID="lbl_Lplate" runat="server" Text="" Visible="false"></asp:Label>
+                        </div>
+                        <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
+                            <asp:Label ID="lbl_flr" runat="server" Text="" Visible="false"></asp:Label>
+                        </div>
+                        <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
+                            <asp:Label ID="lbl_spc" runat="server" Text="" Visible="false"></asp:Label>
+                        </div>
+                        <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
+                            <asp:Label ID="lbl_hrs" runat="server"  Text="" Visible="false"></asp:Label>
+                        </div>
+                        <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
+                            <asp:Label ID="lbl_rf_amt" runat="server" Text="" Visible="false"></asp:Label>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
