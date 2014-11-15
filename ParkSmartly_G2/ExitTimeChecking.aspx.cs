@@ -116,6 +116,24 @@ public partial class ExitTimeChecking : System.Web.UI.Page
                         chargedAmt = ((Int32.Parse((span.Days).ToString()) * 240) + (Int32.Parse((excd_amt).ToString()) * 10)).ToString();
                         lbl_exc_amt.Text = "Charged Amount : " + chargedAmt + "$";
                     }
+
+                    Lbl_dt.Text = CurntDateTime.ToString("dd/MM/yyyy").ToString();
+                    Lbl_t_id.Text = "Ticket Id: " + id;
+                    Lbl_flr.Text = "Floor " + flr;
+                    Lbl_spc.Text = spc;
+
+                    Lbl_Lplate.Text = (Tb_noPlt.Text).ToString();
+                    Lbl_ex_by.Text = excd_amt;
+                    Lbl_Charge_per_hr.Text = "10";
+                    Lbl_chr_amt.Text = chargedAmt;
+
+                    printBox.Attributes.Add("style", "visibility:visible;");
+
+
+
+
+
+
                 }
                 else
                 {
@@ -143,8 +161,8 @@ public partial class ExitTimeChecking : System.Web.UI.Page
     {
         table1.Visible = false; lblTitle.Visible = false; Lbl_dt.Visible = false;
         Lbl_t_id.Visible = false; Lbl_flr.Visible = false; Lbl_spc.Visible = false;
-        Lbl_Lplate.Visible = false; Lbl_timeIn.Visible = false;
-        Lbl_timeOut.Visible = false; Lbl_hrs.Visible = false; Label11.Visible = false;
+        Lbl_Lplate.Visible = false; Lbl_ex_by.Visible = false;
+        Lbl_Charge_per_hr.Visible = false; Lbl_chr_amt.Visible = false; Label11.Visible = false;
         Label12.Visible = false; Label19.Visible = false; Label20.Visible = false;
         Label21.Visible = false; Label22.Visible = false; Label4.Visible = false;
         Label5.Visible = false; Label6.Visible = false; Label7.Visible = false;
@@ -232,12 +250,6 @@ public partial class ExitTimeChecking : System.Web.UI.Page
 
                 lbl_excd_by.Visible = false;
                 lbl_exc_amt.Visible = false;
-
-
-
-
-
-
 
             }
 

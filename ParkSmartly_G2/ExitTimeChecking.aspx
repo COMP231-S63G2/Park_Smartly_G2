@@ -101,7 +101,7 @@
                 </div>
 
             </div>
-            <div id="printBox" runat="server" style="visibility: visible;">
+            <div id="printBox" runat="server" style="visibility: hidden;">
                 <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 320px">
                     <div id="printPanel" style="padding-left: 7px; margin-left: 0px; height: 360px; width: 340px">
                         <div style="height: 380px; width: 310px">
@@ -158,21 +158,21 @@
                                 <tr>
                                     <td style="text-align: right;" class="auto-style3">&nbsp;Exceeded By:</td>
                                     <td style="width: 125px;">&nbsp;
-                                <asp:Label ID="Lbl_timeIn" runat="server" Text="" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_ex_by" runat="server" Text="" Font-Bold="True"></asp:Label>
                                     </td>
 
                                 </tr>
                                 <tr>
                                     <td style="text-align: right;" class="auto-style3">&nbsp;Charge Per Hour:</td>
                                     <td style="width: 125px;">&nbsp;
-                                <asp:Label ID="Lbl_timeOut" runat="server" Text="" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_Charge_per_hr" runat="server" Text="" Font-Bold="True"></asp:Label>
                                     </td>
 
                                 </tr>
                                 <tr>
                                     <td style="text-align: right;" class="auto-style4">&nbsp;Charged amount:</td>
                                     <td style="width: 125px;">&nbsp;
-                                <asp:Label ID="Lbl_hrs" runat="server" Text="" Font-Bold="True"></asp:Label>
+                                <asp:Label ID="Lbl_chr_amt" runat="server" Text="" Font-Bold="True"></asp:Label>
                                     </td>
                                 </tr>
                             </table>
