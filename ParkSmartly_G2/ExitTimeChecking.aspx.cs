@@ -9,8 +9,9 @@ using System.Web.UI.WebControls;
 
 public partial class ExitTimeChecking : System.Web.UI.Page
 {
-    static string date, id, spc, flr, l_plt, hrs, amt, E_tm = null;
+    static string date, id, spc, flr, l_plt, hrs, amt, E_tm = null, chargedAmt, excd_amt;
     static int Exc_hours = '0';
+    static bool greater;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -75,6 +76,61 @@ public partial class ExitTimeChecking : System.Web.UI.Page
 
             }
             else { Lbl_nt_fnd.Text = "Licence Plate OR Ticket Id must be provided"; Lbl_nt_fnd.Visible = true; }
+
+            if (E_tm != null)
+            {
+                DateTime time = DateTime.Parse(E_tm);
+                DateTime CurntDateTime = DateTime.Now;
+                greater = (CurntDateTime > time);
+
+                if (greater == true)
+                {
+                    lbl_excd.Attributes.Add("style", "Color:Red;");
+                    lbl_excd.Text = "Time Exceeded";
+                    lbl_excd.Visible = true;
+                    TimeSpan span = CurntDateTime.Subtract(time);
+                    Console.WriteLine("Time Difference (days): " + span.Days);
+                    String timediff = String.Format("{0}:{1}", span.Hours, span.Minutes);
+                    lbl_excd_by.Visible = true;
+                    if (span.Hours == 0)
+                    {
+                        Exc_hours = '1';
+                    }
+                    else { Exc_hours = span.Hours; }
+                    if (span.Minutes != 0) { Exc_hours = Exc_hours + 1; }
+                    if (span.Days == 0)
+                    {
+                        lbl_excd_by.Text = "Time exceeded by " + timediff + " Hours";
+
+                        excd_amt = (Exc_hours).ToString();
+                        lbl_exc_amt.Visible = true;
+                        chargedAmt = (Int32.Parse((excd_amt).ToString()) * 10).ToString();
+                        lbl_exc_amt.Text = "Charged Amount : " + chargedAmt + "$";
+                    }
+                    else
+                    {
+                        lbl_excd_by.Text = String.Format("Time exceeded by {0} days and {1} Hours ", span.Days, timediff);
+
+                        excd_amt = (Exc_hours).ToString();
+                        lbl_exc_amt.Visible = true;
+                        chargedAmt = ((Int32.Parse((span.Days).ToString()) * 240) + (Int32.Parse((excd_amt).ToString()) * 10)).ToString();
+                        lbl_exc_amt.Text = "Charged Amount : " + chargedAmt + "$";
+                    }
+                }
+                else
+                {
+                    lbl_excd.Attributes.Add("style", "Color:Green;");
+                    lbl_excd.Text = "Time Not Exceeded";
+                    lbl_excd.Visible = true;
+
+
+                }
+            }
+            else
+            {
+                Lbl_nt_fnd.Text = "Data Not Matching, Try Again";
+                Lbl_nt_fnd.Visible = true;
+            }
         }
         catch (NullReferenceException)
         {
@@ -82,56 +138,16 @@ public partial class ExitTimeChecking : System.Web.UI.Page
             Lbl_nt_fnd.Text = "Data Not Matching, Try Again";
             Lbl_nt_fnd.Visible = true;
         }
-
-        DateTime time = DateTime.Parse(E_tm);
-        DateTime CurntDateTime = DateTime.Now;
-        bool greater = (CurntDateTime > time);
-
-        if (greater == true)
-        {
-            lbl_excd.Attributes.Add("style", "Color:Red;");
-            lbl_excd.Text = "Time Exceeded";
-            lbl_excd.Visible = true;
-            TimeSpan span = CurntDateTime.Subtract(time);
-            Console.WriteLine("Time Difference (days): " + span.Days);
-            String timediff = String.Format("{0}:{1}", span.Hours, span.Minutes);
-            lbl_excd_by.Visible = true;
-            if (span.Hours == 0)
-            {
-                Exc_hours = '1';
-            }
-            else { Exc_hours = span.Hours; }
-            if (span.Minutes != 0) { Exc_hours = Exc_hours + 1; }
-            if (span.Days == 0)
-            {
-                lbl_excd_by.Text = "Time exceeded by " + timediff + " Hours";
-
-                String excd_amt = (Exc_hours).ToString();
-                lbl_exc_amt.Visible = true;
-
-                lbl_exc_amt.Text = "Charged Amount : " + (Int32.Parse((excd_amt).ToString()) * 10).ToString() + "$";
-            }
-            else
-            {
-                lbl_excd_by.Text = String.Format("Time exceeded by {0} days and {1} Hours ", span.Days, timediff);
-
-                String excd_amt = (Exc_hours).ToString();
-                lbl_exc_amt.Visible = true;
-
-                lbl_exc_amt.Text = "Charged Amount : " + ((Int32.Parse((span.Days).ToString()) * 240) + (Int32.Parse((excd_amt).ToString()) * 10)).ToString() + "$";
-            }
-        }
-        else
-        {
-            lbl_excd.Attributes.Add("style", "Color:Green;");
-            lbl_excd.Text = "Time Not Exceeded";
-            lbl_excd.Visible = true;
-
-
-        }
     }
     protected void Btn_clr_Click(object sender, EventArgs e)
     {
+        table1.Visible = false; lblTitle.Visible = false; Lbl_dt.Visible = false;
+        Lbl_t_id.Visible = false; Lbl_flr.Visible = false; Lbl_spc.Visible = false;
+        Lbl_Lplate.Visible = false; Lbl_timeIn.Visible = false;
+        Lbl_timeOut.Visible = false; Lbl_hrs.Visible = false; Label11.Visible = false;
+        Label12.Visible = false; Label19.Visible = false; Label20.Visible = false;
+        Label21.Visible = false; Label22.Visible = false; Label4.Visible = false;
+        Label5.Visible = false; Label6.Visible = false; Label7.Visible = false;
 
     }
     protected void Btn_print_Click(object sender, EventArgs e)
@@ -141,6 +157,10 @@ public partial class ExitTimeChecking : System.Web.UI.Page
     protected void Btn_check_out_Click(object sender, EventArgs e)
     {
         //Clear data into parinfo table 
+
+        DateTime CurntDateTime = DateTime.Now;
+        string Datetime = CurntDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
         try
         {
             SqlConnection cnc = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
@@ -163,8 +183,6 @@ public partial class ExitTimeChecking : System.Web.UI.Page
         cnctn.Open();
         string cmstr = "Insert into ParkingHistory (floor,space,entryTime,exitTime,realExitTime,number_Plate,hours,amount) values (@floor,@space,@entryTime,@exitTime,@realExitTime,@number_Plate,@hours,@amount) ";
 
-        DateTime CurntDateTime = DateTime.Now;
-        string Datetime = CurntDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
 
 
@@ -185,6 +203,49 @@ public partial class ExitTimeChecking : System.Web.UI.Page
         }
         catch (Exception ex) { Response.Write("Something went wrong....Better luck next time"); }
 
+
+        if (greater == true)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+            cn.Open();
+            string str = "Insert into ExceededHoursRecord (Floor,Space,EntryTime,ExitTime,RealExitTime,ExceededHours,ChargedAmount,Amount) values (@floor,@space,@entryTime,@exitTime,@realExitTime,@ExcededHrs,@chargAmt,@amount) ";
+
+
+            SqlCommand insertEx_data = new SqlCommand(str, cn);
+            insertEx_data.Parameters.AddWithValue("@floor", flr);
+            insertEx_data.Parameters.AddWithValue("@space", spc);
+            insertEx_data.Parameters.AddWithValue("@entryTime", date);
+            insertEx_data.Parameters.AddWithValue("@exitTime", E_tm);
+            insertEx_data.Parameters.AddWithValue("@realExitTime", Datetime);
+            insertEx_data.Parameters.AddWithValue("@ExcededHrs", excd_amt);
+            insertEx_data.Parameters.AddWithValue("@chargAmt", chargedAmt);
+            insertEx_data.Parameters.AddWithValue("@amount", amt);
+
+            try
+            {
+                insertEx_data.ExecuteNonQuery();
+                cn.Close();
+
+                lbl_excd.Attributes.Add("style", "Color:Green;");
+                lbl_excd.Text = "Check Out done";
+                lbl_excd.Visible = true;
+
+                lbl_excd_by.Visible = false;
+                lbl_exc_amt.Visible = false;
+
+
+
+
+
+
+
+            }
+
+            catch (Exception ex) { Response.Write("Something went wrong....Better luck next time"); }
+
+
+
+        }
 
 
     }

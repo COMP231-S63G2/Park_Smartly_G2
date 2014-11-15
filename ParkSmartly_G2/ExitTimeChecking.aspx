@@ -196,11 +196,11 @@
                     </div>
                     <div class="form-group" style="margin-top: 30px; margin-left: 130px">
                         <div class="col-sm-4 control-label">
-                            <asp:Button ID="Btn_clr" class="btn btn-default" runat="server" OnClick="Btn_clr_Click" Text="Clear" Width="80px" />
+                            <asp:Button ID="Btn_clr" class="btn btn-default" runat="server" CausesValidation="false" OnClick="Btn_clr_Click" Text="Clear" Width="80px" />
 
                         </div>
                         <div class="col-sm-4" style="padding-left: 40px;">
-                            <asp:Button ID="Btn_print" class="btn btn-default" runat="server" OnClick="Btn_print_Click" Text="Print" Width="80px" />
+                            <asp:Button ID="Btn_print" class="btn btn-default" runat="server" CausesValidation="false" OnClientClick="printReciept()" Text="Print" Width="80px" />
 
                         </div>
                     </div>
@@ -208,4 +208,12 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function printReciept() {
+            win = window.open();
+            win.document.write(document.getElementById("printPanel").innerHTML);
+            win.print();
+            win.close();
+        }
+    </script>
 </asp:Content>
