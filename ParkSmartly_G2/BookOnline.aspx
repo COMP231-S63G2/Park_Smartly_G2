@@ -76,41 +76,49 @@
                         </div>
 
                     </div>
-                    <div style="margin-top: 5px;">
+                    <div style="margin-top: 5px;margin-left:100px">
                         <div class="form-horizontal">
-                            <div class="form-group">
+                            <div class="form-group" style="height:15px">
                                 <asp:Label ID="Label3" Style="padding-right: 10px" runat="server" class="col-sm-3 control-label" Text="Name:"></asp:Label>
-                                <div class="col-sm-4" style="padding-left: 0px;">
+                                <div class="col-sm-2" style="padding-left: 0px;">
                                     <asp:TextBox ID="Tb_name" class="form-control" runat="server" Width="110px"></asp:TextBox>
                                 </div>
-                                <div class="col-sm-5" style="padding-left: 20px;">
+                                <div class="col-sm-5" style="padding-left: 30px">
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Tb_name" ErrorMessage="Name Required" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="height:15px">
                                 <asp:Label ID="Label5" Style="padding-right: 10px" runat="server" class="col-sm-3 control-label" Text="Contact No:"></asp:Label>
-                                <div class="col-sm-4" style="padding-left: 0px;">
+                                <div class="col-sm-2" style="padding-left: 0px;">
                                     <asp:TextBox ID="Tb_cont_no" class="form-control" runat="server" Width="110px"></asp:TextBox>
                                 </div>
-                                <div class="col-sm-5" style="padding-left: 20px;">
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="Tb_cont_no" ErrorMessage="Please, Enter contact number" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <div class="col-sm-5" style="padding-left: 30px;">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="Tb_cont_no" ErrorMessage="Enter contact number" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </div>
 
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="height:15px">
                                 <asp:Label ID="Label7" Style="padding-right: 10px" runat="server" class="col-sm-3 control-label" Text="Email Address:"></asp:Label>
-                                <div class="col-sm-4" style="padding-left: 0px;">
+                                <div class="col-sm-2" style="padding-left: 0px;">
                                     <asp:TextBox ID="Tb_eml" class="form-control" runat="server" Width="110px"></asp:TextBox>
                                 </div>
-                                <div class="col-sm-5" style="padding-left: 20px;">
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="SERVER" ControlToValidate="Tb_eml" ErrorMessage="Enter a valid email address." ForeColor="Red" ValidationExpression="^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$">
+                                <div class="col-sm-5" style="padding-left: 30px;">
+                                   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Tb_eml" ErrorMessage="Enter Email Address" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                                </div>
+                            </div>
+                             <div class="form-group" style="height:15px">
+                                
+                                <div class="col-sm-10" style="padding-left: 100px;">
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="SERVER" ControlToValidate="Tb_eml" ErrorMessage="Enter a valid email address." ForeColor="Red" ValidationExpression="^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$">
                                     </asp:RegularExpressionValidator>
                                 </div>
                             </div>
-                            <div class="form-group">
+
+                            <div class="form-group" style="height:15px;margin-top:20px ">
                                 <span class="col-sm-9"></span>
                                 <div class="col-sm-3">
                                     <asp:Button ID="Btn_book" class="btn btn-default" runat="server" OnClick="Btn_book_Click" Text="Book" Width="80px" />
