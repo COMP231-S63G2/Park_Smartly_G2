@@ -45,7 +45,7 @@ public partial class BookOnline : System.Web.UI.Page
 
                     SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
                     cn.Open();
-                    string cmndstr_mor = "select count(*) from Registration_temporary where allocated='false' and parking_time='1' and date  = '" + date + "'";
+                    string cmndstr_mor = "select count(*) from Registration_temporary where allocated='false' and mor_time='false' and date  = '" + date + "'";
                     SqlCommand getmor = new SqlCommand(cmndstr_mor, cn);
                     string availability_mor = getmor.ExecuteScalar().ToString();
                     cn.Close();
@@ -78,7 +78,7 @@ public partial class BookOnline : System.Web.UI.Page
 
                     SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
                     cn1.Open();
-                    string cmndstr_aft = "select id from Registration_temporary where allocated='false' and parking_time='2' and date  = '" + date + "'";
+                    string cmndstr_aft = "select id from Registration_temporary where allocated='false' and aft_time='false' and date  = '" + date + "'";
                     SqlCommand getaft = new SqlCommand(cmndstr_aft, cn1);
                     string availability_aft = getaft.ExecuteScalar().ToString();
                     cn1.Close();
@@ -110,7 +110,7 @@ public partial class BookOnline : System.Web.UI.Page
 
                     SqlConnection cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
                     cn2.Open();
-                    string cmndstr_nit = "select id from Registration_temporary where allocated='false' and parking_time='3' and date  = '" + date + "'";
+                    string cmndstr_nit = "select id from Registration_temporary where allocated='false' and nig_time='false' and date  = '" + date + "'";
                     SqlCommand getnit = new SqlCommand(cmndstr_nit, cn2);
                     string availability_nit = getnit.ExecuteScalar().ToString();
                     cn2.Close();
@@ -202,17 +202,32 @@ public partial class BookOnline : System.Web.UI.Page
             {
                 insert_regi_data.ExecuteNonQuery();
                 cnctn.Close();
+
+                SqlConnection cntn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+                cntn.Open();
+                string cmndstr_id = "Select id from Registration_temporary where date ='" + datepicker.Text + "' and email_id='" + Tb_eml.Text + "' ";
+                SqlCommand getid = new SqlCommand(cmndstr_id, cntn);
+                string id_id = getid.ExecuteScalar().ToString();
+                cntn.Close();
+                if (id_id != null)
+                {
+
+                    Response.Redirect("Confirmation.aspx?id=" + id_id);
+                }
+                else
+                {
+
+                    Response.Redirect("BookOnline.aspx");
+
+                }
+
+
+
+
+
             }
             catch (Exception ex) { Response.Write("Something went wrong....Better luck next time"); }
-
-
-
-
-
-
-
-
-        }
+  }
         catch { }
 
     }

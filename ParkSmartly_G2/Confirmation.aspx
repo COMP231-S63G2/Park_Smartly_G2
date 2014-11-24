@@ -8,6 +8,15 @@
   
         <div style="height: 120px; width: 300px; margin-bottom: 30px;margin-top:70px;margin-left:150px">
                                 
+                            <div style="height: 20px; width: 300px; margin-top: 10px">
+                                    <div style="height: 20px; float: left; width: 150px; text-align: right">
+                                        <asp:Label ID="Label2" runat="server" Text="Date:"></asp:Label>
+
+                                    </div>
+                                    <div style="height: 20px; width: 150px; padding-left: 5px; margin-left: 150px; text-align: left">
+                                        <asp:Label ID="Lbl_date" runat="server" Text="" Font-Bold="True"></asp:Label>
+                                    </div>
+                                </div>
                                 <div style="height: 20px; width: 300px; margin-top: 10px">
                                     <div style="height: 20px; float: left; width: 150px; text-align: right">
                                         <asp:Label ID="Label7" runat="server" Text="Name:"></asp:Label>
