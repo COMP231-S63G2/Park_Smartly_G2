@@ -55,6 +55,12 @@
                             <asp:Button ID="Btn_extd" class="btn btn-default" runat="server" OnClick="Btn_extd_Click" Text="Extend" Width="110px" />
                         </div>
                     </div>
+                    <div class="form-group" style="margin-top: 140px;">
+                        <div class="col-sm-12 control-label">
+                             <asp:Label ID="Lbl_err_msg" runat="server" Style="padding-left: 30px" ForeColor="#CC0000" Text=""></asp:Label>
+                       
+                          </div>
+                    </div>
                 </div>
             </div>
             <div class="well well-lg" style="border: 1px groove #CC99FF; height: 160px; width: 450px; margin-left: 20px;">
