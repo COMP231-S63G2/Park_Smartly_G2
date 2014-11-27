@@ -119,7 +119,10 @@
                             </div>
 
                             <div class="form-group" style="height:15px;margin-top:20px ">
-                                <span class="col-sm-9"></span>
+                                <div class="col-sm-9">
+                                    <asp:Label ID="Lbl_err" Style="padding-right: 10px" runat="server" Text=""></asp:Label>
+                               
+                                </div>
                                 <div class="col-sm-3">
                                     <asp:Button ID="Btn_book" class="btn btn-default" runat="server" OnClick="Btn_book_Click" Text="Book" Width="80px" />
                                 </div>
