@@ -16,6 +16,10 @@
         {
             Response.Redirect("GenerateTicket.aspx");
         }
+        protected void Btn_cncl_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CancelTicket.aspx");
+        }
         protected void Btn_alct_Click(object sender, EventArgs e)
         {
             Response.Redirect("AllocatedSpaces.aspx");
@@ -32,6 +36,9 @@
     <div class="btn-group btn-group-justified" style="width: 800px; margin-left: 10px">
         <div class="btn-group">
             <asp:Button ID="Btn_gent" class="btn btn-default" runat="server" OnClick="Btn_gent_Click" CausesValidation="false" Text="Generate Ticket" />
+        </div>
+        <div class="btn-group">
+            <asp:Button ID="Btn_cncl" class="btn btn-default" runat="server" OnClick="Btn_cncl_Click" CausesValidation="false" Text="Cancel Ticket" />
         </div>
         <div class="btn-group">
             <asp:Button ID="Btn_alct" class="btn btn-default" runat="server" OnClick="Btn_alct_Click" CausesValidation="false" Text="Allocated Spaces" />
@@ -111,8 +118,7 @@
                                 <asp:TextBox ID="TB_reference_no" class="form-control" runat="server" Width="110px"></asp:TextBox>
                             </div>
                             <div class="col-sm-2" style="padding-left: 10px;">
-                                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TB_reference_no" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                            </div>
+                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 30px;">
                             <div class="col-sm-5 control-label">
@@ -120,7 +126,13 @@
                             <div class="col-sm-4" style="padding-left: 0px;">
                                 <asp:Button ID="Btn_gnrt_resrd" class="btn btn-default" runat="server" CausesValidation="false" OnClick="Btn_gnrt_resrd_Click" Text="Generate" Width="110px" />
                             </div>
+                        </div
+                         <div class="form-group" style="margin-top: 30px;">
+                            <div class="col-sm-12 control-label">
+                              <asp:Label ID="Lbl_rid_rq" Style="margin-left: 30px;" runat="server" Text=""></asp:Label>
+                          </div>
                         </div>
+                         
                     </div>
                 </div>
             </div>

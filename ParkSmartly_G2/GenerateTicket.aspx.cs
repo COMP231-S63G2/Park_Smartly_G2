@@ -12,6 +12,7 @@ public partial class GenerateTicket : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Lbl_nospc.Visible = false;
+        Lbl_rid_rq.Text = "";
     }
     protected void Btn_gnrt_Click(object sender, EventArgs e)
     {
@@ -133,6 +134,30 @@ public partial class GenerateTicket : System.Web.UI.Page
 
     protected void Btn_gnrt_resrd_Click(object sender, EventArgs e)
     {
+        try
+        {
+            if (!String.IsNullOrEmpty(TB_reference_no.Text))
+            {
 
+                SqlConnection cn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+                cn1.Open();
+                string cmndstr_exists = "Select email_id from Registration_Data where reference_id = '" + TB_reference_no.Text + "'";
+                SqlCommand geteid = new SqlCommand(cmndstr_exists, cn1);
+                string exists = geteid.ExecuteScalar().ToString();
+                cn1.Close();
+            }
+            else
+            {
+                Lbl_rid_rq.Attributes.Add("style", "Color:Red;");
+                Lbl_rid_rq.Text = "Enter Valid Email Id";
+
+            }
+        }
+        catch (NullReferenceException)
+        {
+            Lbl_rid_rq.Attributes.Add("style", "Color:Red;");
+            Lbl_rid_rq.Text = "Enter Valid Email Id";
+
+        }
     }
 }
