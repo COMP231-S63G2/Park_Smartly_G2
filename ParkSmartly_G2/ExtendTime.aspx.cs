@@ -15,7 +15,7 @@ public partial class ExtendTime : System.Web.UI.Page
     }
     protected void Btn_extd_Click(object sender, EventArgs e)
     {
-        string date, id, spc, flr, l_plt, hrs, amt, E_tm = null, ex_amt;
+        string date = "", id, spc, flr, l_plt = "", hrs = "", amt, E_tm = null, ex_amt;
         int txt_hrs;
 
 
@@ -82,6 +82,9 @@ public partial class ExtendTime : System.Web.UI.Page
                 }
                 else { Lbl_err_msg.Text = "Licence Plate OR Ticket Id must be provided"; Lbl_err_msg.Visible = true; }
 
+
+
+
             }
             else { Lbl_err_msg.Text = "Data Not Matching, Try Again"; }
 
@@ -95,6 +98,27 @@ public partial class ExtendTime : System.Web.UI.Page
                 DateTime ext_time = Convert.ToDateTime(E_tm);
                 DateTime nw_ext_tm = ext_time.AddHours(txt_hrs);
                 ex_amt = (txt_hrs * 4).ToString();
+
+                SqlConnection cnctn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+                cnctn.Open();
+
+                string cmstr = "Insert into TimeExtendedInformation (Date,Number_Plate,Hours,ExtendedHours,ExitTime,Amount) values (@Date,@Number_Plate,@Hours,@ExtendedHours,@ExitTime,@Amount) ";
+
+                SqlCommand insert_extd_data = new SqlCommand(cmstr, cnctn);
+                insert_extd_data.Parameters.AddWithValue("@Date", date);
+                insert_extd_data.Parameters.AddWithValue("@Number_Plate", l_plt);
+                insert_extd_data.Parameters.AddWithValue("@Hours", hrs);
+                insert_extd_data.Parameters.AddWithValue("@ExtendedHours", txt_hrs);
+                insert_extd_data.Parameters.AddWithValue("@ExitTime", E_tm);
+                insert_extd_data.Parameters.AddWithValue("@Amount", ex_amt);
+
+
+                try
+                {
+                    insert_extd_data.ExecuteNonQuery();
+                    cnctn.Close();
+                }
+                catch { }
 
             }
         }
