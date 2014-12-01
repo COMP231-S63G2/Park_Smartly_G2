@@ -109,7 +109,7 @@ public partial class ExtendTime : System.Web.UI.Page
                 insert_extd_data.Parameters.AddWithValue("@Number_Plate", l_plt);
                 insert_extd_data.Parameters.AddWithValue("@Hours", hrs);
                 insert_extd_data.Parameters.AddWithValue("@ExtendedHours", txt_hrs);
-                insert_extd_data.Parameters.AddWithValue("@ExitTime", E_tm);
+                insert_extd_data.Parameters.AddWithValue("@ExitTime", nw_ext_tm);
                 insert_extd_data.Parameters.AddWithValue("@Amount", ex_amt);
 
 
@@ -117,6 +117,21 @@ public partial class ExtendTime : System.Web.UI.Page
                 {
                     insert_extd_data.ExecuteNonQuery();
                     cnctn.Close();
+
+                    lbl_msg.Attributes.Add("style", "Color:Green;");
+                    lbl_msg.Text = " You have successfully extended your time-limit";
+                    lbl_msg.Visible = true;
+
+                    lbl_ex_hrs.Text = " Extended Hours: " + txt_hrs + " Hours";
+                    lbl_ex_hrs.Visible = true;
+
+                    lbl_amt.Text = "Amount to pay: " + ex_amt + " CAD";
+                    lbl_amt.Visible = true;
+
+                    ;
+
+                    lbl_nw_ext_tm.Text = "Your new exit time is  " + nw_ext_tm.ToString("hh:mm tt") + "";
+                    lbl_nw_ext_tm.Visible = true;
                 }
                 catch { }
 

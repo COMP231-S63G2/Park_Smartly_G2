@@ -65,8 +65,8 @@
             </div>
             <div class="well well-lg" style="border: 1px groove #CC99FF; height: 160px; width: 450px; margin-left: 20px;">
 
-                <div class="form-group">
-                    <div style="padding-left: 0px; height: 25px; width: 280px; text-align: center">
+                <div class="form-group" style="margin-left:30px">
+                    <div style="padding-left: 0px; height: 25px; width: 320px; text-align: center">
                         <asp:Label ID="lbl_msg" runat="server" Text="" Visible="False"></asp:Label>
                     </div>
                     <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
@@ -76,7 +76,10 @@
                         <asp:Label ID="lbl_amt" runat="server" Text="" Visible="False"></asp:Label>
 
                     </div>
+                    <div style="padding-left: 0px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
+                        <asp:Label ID="lbl_nw_ext_tm" runat="server" Text="" Visible="False"></asp:Label>
 
+                    </div>
                 </div>
             </div>
         </div>
