@@ -103,7 +103,7 @@ public partial class GenerateTicket : System.Web.UI.Page
                 Lbl_timeOut.Text = (((ExitTime.Hour + 11) % 12) + 1).ToString() + ":" + ExitTime.ToString("mm tt").ToString();
                 Lbl_hrs.Text = hors.ToString();
 
-                printDiv.Attributes.Add("style", "visibility:visible;");
+                printDiv.Attributes.Add("style", "visibility:visible; display:inline-block; ");
             }
             else { Lbl_nospc.Visible = true; }
         }
@@ -152,7 +152,7 @@ public partial class GenerateTicket : System.Web.UI.Page
                 SqlCommand getData = new SqlCommand(cmndstr_getDtls, cnn);
                 SqlDataReader dr = getData.ExecuteReader();
 
-                string mtm, atm, ntm, name, e_id, c_no, dt, amt, r_id;
+                string mtm, atm, ntm, name, e_id, c_no, dt, amt = null, r_id;
                 while (dr.Read())
                 {
 
@@ -171,18 +171,31 @@ public partial class GenerateTicket : System.Web.UI.Page
                 dr.Close();
                 cnn.Close();
 
+                DateTime CurntDateTime = DateTime.Now;
+                DateTime extTime = CurntDateTime.AddHours(6);
+                Lbl_dt.Text = CurntDateTime.ToString("dd/MM/yyyy").ToString();
+                Lbl_t_id.Text = "Ticket Id: " + TB_reference_no.Text;
+                lbl_flor.Visible = false; Lbl_spc.Visible = false;
+                Lbl_amount.Text = amt + " CAD";
+                Lbl_Lplate.Text = (Tb_noPlt.Text).ToString();
+                Lbl_timeIn.Text = (((CurntDateTime.Hour + 11) % 12) + 1).ToString() + ":" + CurntDateTime.ToString("mm tt").ToString();
+                Lbl_timeOut.Text = (((extTime.Hour + 11) % 12) + 1).ToString() + ":" + extTime.ToString("mm tt").ToString();
+                Lbl_hrs.Text = "6";
+
+                printDiv.Attributes.Add("style", "visibility:visible; display:inline-block; ");
+
             }
             else
             {
                 Lbl_rid_rq.Attributes.Add("style", "Color:Red;");
-                Lbl_rid_rq.Text = "Enter Valid Email Id";
+                Lbl_rid_rq.Text = "Enter Valid Reference No";
 
             }
         }
         catch (NullReferenceException)
         {
             Lbl_rid_rq.Attributes.Add("style", "Color:Red;");
-            Lbl_rid_rq.Text = "Enter Valid Email Id";
+            Lbl_rid_rq.Text = "Enter Valid Reference No";
 
         }
     }

@@ -53,10 +53,10 @@
 
 
 
-    <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
+    <div class="t1" style="height: 550px; width:800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
 
-        <div style="width: 708px; height: 400px; margin-top: 20px">
-            <div style="width: 300px; height: 500px; float: left">
+        <div style=" display:inline-block; height: 400px; margin-top: 20px">
+            <div style="height: 500px; float: left">
                 <div class="panel panel-default" style="width: 330px; margin-left: 20px">
                     <div class="panel-heading">
                         <h3 class="panel-title-wht">Generate Tickets</h3>
@@ -136,8 +136,8 @@
                     </div>
                 </div>
             </div>
-            <div id="printDiv" runat="server" style="visibility: hidden;">
-                <div style="margin-left: 390px; border: double; border-color: #ddbbea; height: 390px; width: 320px">
+            <div id="printDiv" ClientIDMode="Static"  runat="server" style="visibility: hidden;  display:inline-block; ">
+                <div style="margin-left:70px; display:inline-block; border: double; border-color: #ddbbea; height: 390px; width: 320px">
                     <div id="printPanel" style="padding-left: 7px; margin-left: 0px; height: 360px; width: 340px">
                         <div style="height: 380px; width: 310px">
                             <div style="height: 20px; width: 310px; margin-top: 10px; margin-bottom: 10px">
