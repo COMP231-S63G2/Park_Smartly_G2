@@ -145,6 +145,32 @@ public partial class GenerateTicket : System.Web.UI.Page
                 SqlCommand geteid = new SqlCommand(cmndstr_exists, cn1);
                 string exists = geteid.ExecuteScalar().ToString();
                 cn1.Close();
+
+                SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
+                cnn.Open();
+                string cmndstr_getDtls = "Select * from Registration_Data where reference_id = '" + TB_reference_no.Text + "'";
+                SqlCommand getData = new SqlCommand(cmndstr_getDtls, cnn);
+                SqlDataReader dr = getData.ExecuteReader();
+
+                string mtm, atm, ntm, name, e_id, c_no, dt, amt, r_id;
+                while (dr.Read())
+                {
+
+
+                    mtm = dr["mor_time"].ToString();
+                    atm = dr["aft_time"].ToString();
+                    ntm = dr["nig_time"].ToString();
+                    name = dr["name"].ToString();
+                    e_id = dr["email_id"].ToString();
+                    c_no = dr["contact_no"].ToString();
+                    dt = dr["date"].ToString();
+                    amt = dr["amount"].ToString();
+                    r_id = dr["reference_id"].ToString();
+
+                }
+                dr.Close();
+                cnn.Close();
+
             }
             else
             {
