@@ -29,8 +29,7 @@
                             <asp:TextBox ID="Tb_id" class="form-control" runat="server" Width="110px"></asp:TextBox>
                         </div>
                         <div class="col-sm-2" style="padding-left: 20px;">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Tb_id" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
+                           </div>
                     </div>
 
                     <div class="form-group" style="margin-top: 60px;">
@@ -42,7 +41,7 @@
                     </div>
                     <div class="form-group" style="margin-top: 110px;">
                         <div class="col-sm-12 control-label">
-                            <asp:Label ID="Lbl_err_msg" runat="server" Style="padding-left: 30px" ForeColor="#CC0000" Text=""></asp:Label>
+                            <asp:Label ID="Lbl_err_msg" runat="server" Style="padding-left: 30px" ForeColor="#CC0000" Text="sxdfgfdsdfgf"></asp:Label>
 
                         </div>
                     </div>
@@ -55,10 +54,10 @@
                         <asp:Label ID="lbl_msg" runat="server" Text="" Visible="false"></asp:Label>
                     </div>
                     <div style="padding-left: 50px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_floor" runat="server" Text="" Visible="false"></asp:Label>
+                        <asp:Label ID="lbl_floor" runat="server" Visible="False" Font-Bold="True"></asp:Label>
                     </div>
                     <div style="padding-left: 50px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
-                        <asp:Label ID="lbl_space" runat="server" Text="" Visible="false"></asp:Label>
+                        <asp:Label ID="lbl_space" runat="server" Text="" Visible="false" Font-Bold="True"></asp:Label>
 
                     </div>
                     <div style="padding-left: 50px; margin-top: 5px; height: 25px; width: 280px; text-align: center">
