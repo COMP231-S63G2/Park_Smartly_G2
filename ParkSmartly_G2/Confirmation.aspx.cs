@@ -2,25 +2,29 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class Confirmation : System.Web.UI.Page
 {
-    string id;
+    static string id;
+    static string r_id = "", mor_time = "", aft_time = "", nig_tm = "", name = "", ema_id = "", co_no = "", date = "";
+    static string par_time = "", amnt = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!string.IsNullOrEmpty(Request.QueryString["id"]))
         {
-           id  = Request.QueryString["id"];
+            id = Request.QueryString["id"];
         }
         else
         {
             //lblDefaultData.Text = "Sorry,Data not found";
         }
-        string r_id = "", mor_time = "", aft_time = "", nig_tm = "", name = "", ema_id = "", co_no = "", date = "";
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Park_smartly_conStr"].ConnectionString);
         conn.Open();
         string cmndstr_getDtls = "Select * from Registration_temporary where id = '" + id + "'";
@@ -30,9 +34,6 @@ public partial class Confirmation : System.Web.UI.Page
         while (dr.Read())
         {
 
-
-
-           
 
             r_id = dr["id"].ToString();
             mor_time = dr["mor_time"].ToString();
@@ -46,12 +47,10 @@ public partial class Confirmation : System.Web.UI.Page
         }
         dr.Close();
         //conn.Close();
-        string par_time="",amnt="";
-        if (mor_time == "true") { par_time = "morning"; amnt = "30"; }
-        else if (aft_time == "true") { par_time = par_time + " afternoon"; amnt = (amnt + 30).ToString(); }
-        else if (nig_tm == "true") { par_time = par_time + " night"; amnt = (amnt + 25).ToString(); } 
 
-
+        if (mor_time == "True") { par_time = "morning"; amnt = "20"; }
+        if (aft_time == "True") { par_time = par_time + ", afternoon"; amnt = (Convert.ToInt32(amnt) + 20).ToString(); }
+        if (nig_tm == "True") { par_time = par_time + ", night"; amnt = (Convert.ToInt32(amnt) + 15).ToString(); }
 
 
         Lbl_date.Text = date;
@@ -59,7 +58,7 @@ public partial class Confirmation : System.Web.UI.Page
         Lbl_co_name.Text = co_no;
         Lbl_emai.Text = ema_id;
         Lbl_par_time.Text = par_time;
-        Lbl_amt.Text = amnt;
+        Lbl_amt.Text = amnt + " CAD";
     }
 
     protected void Btn_confirm_Click(object sender, EventArgs e)
@@ -111,7 +110,7 @@ public partial class Confirmation : System.Web.UI.Page
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
             mail.From = new MailAddress("parksmartly2@gmail.com");
-            mail.To.Add("gkgaurav74@gmail.com");
+            mail.To.Add(ema_id);
             mail.Subject = "Online Parking Confirmatiion";
 
             mail.IsBodyHtml = true;
@@ -123,7 +122,26 @@ public partial class Confirmation : System.Web.UI.Page
 
             SmtpServer.Send(mail);
             // MessageBox.Show("mail Send");
-                     
+
+            Lbl_date.Visible = false;
+            lbl_name.Visible = false;
+            Lbl_co_name.Visible = false;
+            Lbl_emai.Visible = false;
+            Lbl_par_time.Visible = false;
+            Lbl_amt.Visible = false;
+            Label1.Visible = false;
+            Label11.Visible = false;
+            Label2.Visible = false;
+            Label7.Visible = false;
+            Label5.Visible = false;
+            Label9.Visible = false;
+            Btn_confirm.Visible = false;
+            lbl_1.Visible = true;
+            lbl_1.Text = "You have successfully Reserved your parking space.";
+            Lbl_2.Visible = true;
+            Lbl_2.Text = "We sent you a confirmation mail.your reference number is " + r_id;
+
+            Btn_dn.Visible = true;
 
         }
         catch (Exception ex)
@@ -131,5 +149,11 @@ public partial class Confirmation : System.Web.UI.Page
             //  MessageBox.Show(ex.ToString());
         }
 
+    }
+
+
+    protected void Btn_dn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HomePage.aspx");
     }
 }
