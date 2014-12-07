@@ -19,7 +19,7 @@ public partial class GenerateTicket : System.Web.UI.Page
 
         int hors = Int32.Parse(Tb_hours.Text);
 
-        String amt = ((hors) * 8).ToString();
+        String amt = ((hors) * 4).ToString();
         Label10.Text = amt + " CAD";
         String availability = null;
         try
@@ -118,6 +118,7 @@ public partial class GenerateTicket : System.Web.UI.Page
     {
         Tb_noPlt.Text = null;
         Tb_hours.Text = null;
+        Label10.Text = "";
     }
     protected void Btn_clr_Click(object sender, EventArgs e)
     {

@@ -104,7 +104,7 @@ public partial class ExitTimeChecking : System.Web.UI.Page
 
                         excd_amt = (Exc_hours).ToString();
                         lbl_exc_amt.Visible = true;
-                        chargedAmt = (Int32.Parse((excd_amt).ToString()) * 10).ToString();
+                        chargedAmt = (Int32.Parse((excd_amt).ToString()) * 5).ToString();
                         lbl_exc_amt.Text = "Charged Amount : " + chargedAmt + "$";
                     }
                     else
@@ -113,7 +113,7 @@ public partial class ExitTimeChecking : System.Web.UI.Page
 
                         excd_amt = (Exc_hours).ToString();
                         lbl_exc_amt.Visible = true;
-                        chargedAmt = ((Int32.Parse((span.Days).ToString()) * 240) + (Int32.Parse((excd_amt).ToString()) * 10)).ToString();
+                        chargedAmt = ((Int32.Parse((span.Days).ToString()) * 240) + (Int32.Parse((excd_amt).ToString()) * 5)).ToString();
                         lbl_exc_amt.Text = "Charged Amount : " + chargedAmt + "$";
                     }
 
@@ -124,7 +124,7 @@ public partial class ExitTimeChecking : System.Web.UI.Page
 
                     Lbl_Lplate.Text = (Tb_noPlt.Text).ToString();
                     Lbl_ex_by.Text = excd_amt;
-                    Lbl_Charge_per_hr.Text = "10";
+                    Lbl_Charge_per_hr.Text = "5";
                     Lbl_chr_amt.Text = chargedAmt;
 
                     printBox.Attributes.Add("style", "visibility:visible;");

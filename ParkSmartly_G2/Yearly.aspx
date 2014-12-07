@@ -38,17 +38,30 @@
         </div>
     </div>
     
-    <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
-    <asp:Label ID="Label1" Style="padding-left: 200px" align="left" runat="server" class="col-sm-5 control-label" Text="Select Year:"></asp:Label>
-            <div class="col-sm-4" style="padding-left: 0px;">
-                <asp:DropDownList AutoPostBack="True" ID="DdYear" Width="120px" runat="server" DataSourceID="dsYears" DataTextField="Year" DataValueField="Year"></asp:DropDownList>
-              <asp:SqlDataSource ID="dsYears" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT DISTINCT YEAR([Date]) as 'Year' from ParkingInformation"></asp:SqlDataSource>
-          
-            </div>
+    <div class="t1" style="height: 30px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
+    <asp:Label ID="Label1" Style="padding-left: 330px" align="left" runat="server" class="col-sm-12 control-label" Text="Yearly Report" Font-Bold="True" Font-Size="Larger" ForeColor="#993399"></asp:Label>
+            
     
     
     </div>
-
+    <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
+         <div style="width:550px;margin-left:120px">
+        <asp:GridView ID="gvData" runat="server" CssClass="table table-condensed" CellPadding="4" ForeColor="#333333" GridLines="None" >
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <EditRowStyle BackColor="#f1d9f4" />
+            <FooterStyle BackColor="#be8fd1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#be8fd1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#be8fd1" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#f1d9f4" />
+            <SelectedRowStyle BackColor="#f1d9f4" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        </asp:GridView>
+         </div>
+        
+         </div>
 </asp:Content>
 
 
