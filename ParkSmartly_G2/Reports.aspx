@@ -46,15 +46,39 @@
         </div>
     </div>
     <div class="t1" style="height: 40px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
-        <div class="form-group">
-            <asp:Label ID="Label1" Style="padding-left: 200px" align="left" runat="server" class="col-sm-5 control-label" Text="Select Month:"></asp:Label>
+        <div class="form-group col-sm-6">
+            <asp:Label ID="Label2"  align="left" runat="server" class="col-sm-5 control-label" Text="Select Year:"></asp:Label>
             <div class="col-sm-4" style="padding-left: 0px;">
-                <asp:DropDownList ID="DropDownList1" Width="120px" runat="server"></asp:DropDownList>
+                <asp:DropDownList OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" AutoPostBack="True" ID="ddlYear" Width="120px" runat="server" DataSourceID="dsYears" DataTextField="Year" DataValueField="Year"></asp:DropDownList>
+                <asp:SqlDataSource ID="dsYears" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT DISTINCT YEAR([Date]) as 'Year' from ParkingInformation"></asp:SqlDataSource>
             </div>
 
         </div>
+        <div class="form-group col-sm-6">
+            <asp:Label ID="Label1" align="left" runat="server" class="col-sm-5 control-label" Text="Select Month:"></asp:Label>
+            <div class="col-sm-4" style="padding-left: 0px;">
+                <asp:DropDownList OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" AutoPostBack="True" ID="ddlMonth" Width="120px" runat="server" DataSourceID="dsMonths" DataTextField="Month" DataValueField="Month"></asp:DropDownList>
+                <asp:SqlDataSource ID="dsMonths" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT DISTINCT MONTH([Date]) as 'Month' from ParkingInformation"></asp:SqlDataSource>
+            </div>
+
+        </div>
+         
     </div>
     <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
+        <asp:GridView ID="gvData" runat="server" CssClass="table table-condensed" CellPadding="4" ForeColor="#333333" GridLines="None" >
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <EditRowStyle BackColor="#f1d9f4" />
+            <FooterStyle BackColor="#be8fd1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#be8fd1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#be8fd1" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#f1d9f4" />
+            <SelectedRowStyle BackColor="#f1d9f4" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        </asp:GridView>
+        
     </div>
 
 </asp:Content>
