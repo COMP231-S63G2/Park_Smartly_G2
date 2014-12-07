@@ -39,6 +39,14 @@
     </div>
     
     <div class="t1" style="height: 550px; width: 800px; opacity: 0.9; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 0px">
+    <asp:Label ID="Label1" Style="padding-left: 200px" align="left" runat="server" class="col-sm-5 control-label" Text="Select Year:"></asp:Label>
+            <div class="col-sm-4" style="padding-left: 0px;">
+                <asp:DropDownList AutoPostBack="True" ID="DdYear" Width="120px" runat="server" DataSourceID="dsYears" DataTextField="Year" DataValueField="Year"></asp:DropDownList>
+              <asp:SqlDataSource ID="dsYears" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT DISTINCT YEAR([Date]) as 'Year' from ParkingInformation"></asp:SqlDataSource>
+          
+            </div>
+    
+    
     </div>
 
 </asp:Content>
