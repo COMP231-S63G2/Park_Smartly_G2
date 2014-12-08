@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="months.aspx.cs" Inherits="months" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Monthly.aspx.cs" Inherits="Monthly" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<script runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script runat="server">
 
         protected void Btn_daily_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@
         <div class="form-group">
             <asp:Label ID="Label1" Style="padding-left: 200px" align="left" runat="server" class="col-sm-5 control-label" Text="Select Year:"></asp:Label>
             <div class="col-sm-4" style="padding-left: 0px;">
-                <asp:DropDownList ID="DropDownList1" Width="120px" runat="server"></asp:DropDownList>
+                <asp:DropDownList AutoPostBack="True" ID="DropDownList1" Width="120px" runat="server" DataSourceID="dsYears" DataTextField="Year" DataValueField="Year"></asp:DropDownList>
             </div>
 
         </div>
