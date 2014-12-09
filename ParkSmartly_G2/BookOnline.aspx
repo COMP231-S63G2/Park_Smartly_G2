@@ -43,11 +43,11 @@
                             <asp:Label ID="Lbl_ptime" runat="server" Style="padding-left: 62px" Font-Bold="true" Text=" Select Parking Times"></asp:Label>
 
                         </div>
-                        <div style="margin-left: 80px">
+                        <div style="margin-left: 30px">
                             <div class="form-group" style="margin-top: 20px; margin-bottom: 20px; height: 20px">
                                 <div class="col-sm-7 control-label" style="text-align: right">
                                     <asp:CheckBox ID="Cb_mor" runat="server" />
-                                    <asp:Label ID="Label2" runat="server" Style="padding-left: 10px; margin-right: 20px" Text="Morning (6:00AM to 2:00PM)"></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Style="padding-left: 0px; margin-right: 20px" Text="Morning (6:00AM to 2:00PM) 20 CAD"></asp:Label>
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0px;">
                                     <asp:Label ID="Lbl_mor" runat="server" Style="padding-left: 62px" Font-Bold="true" Visible="false" Text=""></asp:Label>
@@ -57,7 +57,7 @@
                             <div class="form-group" style="margin-top: 0px; height: 20px">
                                 <div class="col-sm-7 control-label" style="text-align: right">
                                     <asp:CheckBox ID="Cb_aft" runat="server" />
-                                    <asp:Label ID="Label4" runat="server" Style="padding-left: 10px; margin-right: 2px" Text="Afternoon (2:00PM to 10:00PM)"></asp:Label>
+                                    <asp:Label ID="Label4" runat="server" Style="padding-left: 0px; margin-right: 2px" Text="Afternoon (2:00PM to 10:00PM) 20 CAD"></asp:Label>
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0px;">
                                     <asp:Label ID="Lbl_aft" runat="server" Style="padding-left: 62px" Font-Bold="true" Visible="false" Text=""></asp:Label>
@@ -66,7 +66,7 @@
                             <div class="form-group" style="">
                                 <div class="col-sm-7 control-label" style="text-align: right; height: 20px">
                                     <asp:CheckBox ID="Cb_nig" runat="server" />
-                                    <asp:Label ID="Label6" runat="server" Style="padding-left: 10px; margin-right: 30px" Text="Night (10:00PM to 6:00AM)"></asp:Label>
+                                    <asp:Label ID="Label6" runat="server" Style="padding-left: 0px; margin-right: 30px" Text="Night (10:00PM to 6:00AM) 15 CAD"></asp:Label>
                                 </div>
                                 <div class="col-sm-5" style="padding-left: 0px;">
                                     <asp:Label ID="Lbl_nig" runat="server" Style="padding-left: 62px" Font-Bold="true" Visible="false" Text=""></asp:Label>

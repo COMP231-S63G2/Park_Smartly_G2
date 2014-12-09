@@ -50,7 +50,7 @@
             <asp:Label ID="Label2"  align="left" runat="server" class="col-sm-5 control-label" Text="Select Year:"></asp:Label>
             <div class="col-sm-4" style="padding-left: 0px;">
                 <asp:DropDownList OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" AutoPostBack="True" ID="ddlYear" Width="120px" runat="server" DataSourceID="dsYears" DataTextField="Year" DataValueField="Year"></asp:DropDownList>
-                <asp:SqlDataSource ID="dsYears" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT DISTINCT YEAR([Date]) as 'Year' from ParkingInformation"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="dsYears" runat="server" ConnectionString="<%$ ConnectionStrings:Park_smartly_conStr %>" SelectCommand="SELECT DISTINCT YEAR([Date]) as 'Year' from ParkingInformation"></asp:SqlDataSource>
             </div>
 
         </div>
@@ -58,7 +58,7 @@
             <asp:Label ID="Label1" align="left" runat="server" class="col-sm-5 control-label" Text="Select Month:"></asp:Label>
             <div class="col-sm-4" style="padding-left: 0px;">
                 <asp:DropDownList OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" AutoPostBack="True" ID="ddlMonth" Width="120px" runat="server" DataSourceID="dsMonths" DataTextField="Month" DataValueField="Month"></asp:DropDownList>
-                <asp:SqlDataSource ID="dsMonths" runat="server" ConnectionString="<%$ ConnectionStrings:ParkSmartlyDBConnectionString %>" SelectCommand="SELECT DISTINCT MONTH([Date]) as 'Month' from ParkingInformation"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="dsMonths" runat="server" ConnectionString="<%$ ConnectionStrings:Park_smartly_conStr %>" SelectCommand="SELECT DISTINCT MONTH([Date]) as 'Month' from ParkingInformation"></asp:SqlDataSource>
             </div>
 
         </div>
