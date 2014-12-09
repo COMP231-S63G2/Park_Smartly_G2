@@ -15,16 +15,19 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 lnkLogout.Visible = true;
                 wi_login.Visible = false;
                 btnLogout_adm.Visible = false;
+                rpt_a.Visible = true;
             }
             else if (Session["admin"] != null)
             {
                 lnkLogout.Visible = true;
                 btnLogout_adm.Visible = false;
                 wi_login.Visible = false;
+                rpt_a.Visible = true;
             }
             else
             {
                 lnkLogout.Visible = false;
+                rpt_a.Visible = false;
             }
     }
 

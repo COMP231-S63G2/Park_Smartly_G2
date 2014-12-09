@@ -69,10 +69,10 @@
 
     <div class="btn-group btn-group-justified" style="width: 590px; margin-left: 100px">
         <div class="btn-group">
-            <asp:Button ID="Btn_mkAcc" class="btn btn-default" runat="server" OnClick="Btn_mkAcc_Click" CausesValidation="false" Text="Generate Ticket" />
+            <asp:Button ID="Btn_mkAcc" class="btn btn-default" runat="server" OnClick="Btn_mkAcc_Click" CausesValidation="false" Text="Registration" />
         </div>
         <div class="btn-group">
-            <asp:Button ID="Btn_updt" class="btn btn-default" runat="server" OnClick="Btn_updt_Click" CausesValidation="false" Text="Allocated Spaces" />
+            <asp:Button ID="Btn_updt" class="btn btn-default" runat="server" OnClick="Btn_updt_Click" CausesValidation="false" Text="Insert Spaces" />
         </div>
     </div>
 

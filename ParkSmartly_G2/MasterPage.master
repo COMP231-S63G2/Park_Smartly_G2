@@ -32,8 +32,8 @@
                                 <li><a href="SearchLocation.aspx">Search Car Location</a></li>
                                 <li><a href="ExtendTime.aspx">Extend Parking Time</a></li>
                                 <li><a href="BookOnline.aspx">Book Online</a></li>
-                                <li><a href="Reports.aspx">Check Reports</a></li>
                                 <li><a href="Aboutus.aspx">About Us</a></li>
+                                <li><a id="rpt_a" runat="server" href="Reports.aspx">Check Reports</a></li>
                             </ul>
                         </div>
                         <div id="lnkLogout" runat="server" style="height: 300px; width: 255px;">
